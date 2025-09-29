@@ -49,7 +49,7 @@ if card_inset == "yes":
     else:
         print("We are working on it")
 
-    else:
+    else
         print("PIN Incorrect")
 else:
     print("Wrong input try again")
