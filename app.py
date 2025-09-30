@@ -40,5 +40,5 @@
 # h2.act()
 # h3.dance()
 
-for i in range(101000000000000000000000000000000000000000000):
-    print(i)
+# for i in range(10):
+#     print(i)
