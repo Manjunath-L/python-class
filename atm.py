@@ -53,7 +53,6 @@ if card_inset == "yes":
                         print("Your balance amount : ", bal - amount)
                         print("Thank you visit again")
                     print("Thank you visit again")
-    else:
-        print("PIN Incorrect")
+
 else:
     print("Wrong input try again")
