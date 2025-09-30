@@ -34,6 +34,7 @@ if card_inset == "yes":
             print("3.Balance Enquiry")
             options_inp = int(input("Enter your option : "))
 
+            # chack option condition
             if options_inp == 1:
                 print("Enter type of account")
                 print("1.Saving account")
