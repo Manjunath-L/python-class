@@ -13,7 +13,7 @@ __        __   _                            _____          _  _____ __  __
 
 card_inset = str(input("Insert a card : "))
 
-#chack card condition
+# chack card condition
 if card_inset == "yes":
     user_pin = int(input("Enter a 4 digit pin : "))
 
@@ -50,7 +50,7 @@ if card_inset == "yes":
 
                     # chack balance condition
                     if balance == "yes":
-                        print("Your balance amount : " , bal - amount )
+                        print("Your balance amount : ", bal - amount)
                         print("Thank you visit again")
                     print("Thank you visit again")
     else:
