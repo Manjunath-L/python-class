@@ -34,7 +34,6 @@ if card_inset == "yes":
             print("3.Balance Enquiry")
             options_inp = int(input("Enter your option : "))
 
-            # chack option condition
             if options_inp == 1:
                 print("Enter type of account")
                 print("1.Saving account")
@@ -53,7 +52,7 @@ if card_inset == "yes":
                         print("Your balance amount : ", bal - amount)
                         print("Thank you visit again")
                     print("Thank you visit again")
-  else:
+    else:
         print("PIN Incorrect")
 else:
     print("Wrong input try again")
