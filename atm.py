@@ -36,11 +36,11 @@ if card_inset == "yes":
 
                 options_inp = int(input("Enter your option : "))
 
+                # deposit option condition
                 if options_inp == 2:
                     dep_amo = int(input("Enter a amount to deposit :  "))
                     bal = bal + dep_amo
                     print("Your balance after a deposit : ", bal)
-
                     break
 
                 # chack option condition
@@ -57,10 +57,12 @@ if card_inset == "yes":
                         print("Collect your cash")
                         balance = str(input("Do you want to see balance (Yes/No) : "))
 
-                    # chack balance condition
+                        # chack balance condition
                         if balance == "yes":
                             print("Your balance amount : ", bal - amount)
-                            con_user = str(input("Do you want to continue ? (yes/no) : "))
+                            con_user = str(
+                                input("Do you want to continue ? (yes/no) : ")
+                            )
                             if con_user == "yes":
                                 continue
                             else:
