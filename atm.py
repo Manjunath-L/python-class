@@ -25,33 +25,47 @@ if card_inset == "yes":
         language_inp = int(input("Enter 1 or 2: "))
 
         # chack lan condition
-        if language_inp == 1:
-            print("Select English")
-            print("<============================>")
-            print("Select Options")
-            print("1.Withdraw")
-            print("2.Deposit")
-            print("3.Balance Enquiry")
-            options_inp = int(input("Enter your option : "))
+        while True:
+            if language_inp == 1:
+                print("Select English")
+                print("<============================>")
+                print("Select Options")
+                print("1.Withdraw")
+                print("2.Deposit")
+                print("3.Balance Enquiry")
 
-            # chack option condition
-            if options_inp == 1:
-                print("Enter type of account")
-                print("1.Saving account")
-                print("2.Current account")
-                account_typ = int(input("Enter your account type : "))
+                options_inp = int(input("Enter your option : "))
 
-                # chack account condition
-                if account_typ == 1:
-                    amount = int(input("Enter a amount : "))
-                    print("Please wait")
-                    print("Collect your cash")
-                    balance = str(input("Do you want to see balance (Yes/No) : "))
+                if options_inp == 2:
+                    dep_amo = int(input("Enter a amount to deposit :  "))
+                    bal = bal + dep_amo
+                    print("Your balance after a deposit : ", bal)
+
+                    break
+
+                # chack option condition
+                if options_inp == 1:
+                    print("Enter type of account")
+                    print("1.Saving account")
+                    print("2.Current account")
+                    account_typ = int(input("Enter your account type : "))
+
+                    # chack account condition
+                    if account_typ == 1:
+                        amount = int(input("Enter a amount : "))
+                        print("Please wait")
+                        print("Collect your cash")
+                        balance = str(input("Do you want to see balance (Yes/No) : "))
 
                     # chack balance condition
-                    if balance == "yes":
-                        print("Your balance amount : ", bal - amount)
-                        print("Thank you visit again")
+                        if balance == "yes":
+                            print("Your balance amount : ", bal - amount)
+                            con_user = str(input("Do you want to continue ? (yes/no) : "))
+                            if con_user == "yes":
+                                continue
+                            else:
+                                print("Thank you visit again")
+                                break
                     print("Thank you visit again")
     else:
         print("PIN Incorrect")
