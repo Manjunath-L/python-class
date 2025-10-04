@@ -51,7 +51,8 @@ if card_inset == "yes":
                             if con_user == "yes":
                                 continue
                             else:
-                                print("Thank you visit again")
+                                print
+                                ("Thank you visit again")
                                 break
                     print("Thank you visit again")
     else:
