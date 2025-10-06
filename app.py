@@ -89,10 +89,89 @@
 # print(2 >= (100 ** 0))
 # print(False ** True)
 
-print(True and True and True)
-print(False and (True ** 2))
-print(-99 and 90 or 90)
-print(50 or "domf" and 60 )
-print(90 and ())
-print(2 >= (100 ** 0))
-print(False ** True)
+# print(True and True and True)
+# print(False and (True ** 2))
+# print(-99 and 90 or 90)
+# print(50 or "domf" and 60 )
+# print(90 and ())
+# print(2 >= (100 ** 0))
+# print(False ** True)
+
+
+
+# a = 10
+# print(a)
+# b=(2*5)
+# print(b)
+# c=(10**1)
+# print(c)
+# print(a==b==c)
+# print(id(a)==id(b)==id(c))
+# c=15
+# print(c)
+# print(id(c))
+# c=20
+# print(c)
+# print(id(c))
+# c=25
+# print(c)
+# print(id(c))
+# d=1,2,3
+# print(d)
+# print(type(d))
+# print(id(d))
+#
+# a = 5
+# print(a)
+# print(type(a))
+# b=5.5
+# print(b)
+# print(type(b))
+# c="rama"
+# print(c)
+# print(type(c))
+#
+#
+# a= 5
+# print(a)
+# print(id(a))
+# b=a
+# print(b)
+# print(id(b))
+# print(a is b)
+# c=a
+# print(c)
+# print(id(c))
+# print(a is c)
+#
+# a=10
+# b=10
+# c=10
+# print(a)
+# print(b)
+# print(c)
+# print(id(a))
+# print(id(b))
+# print(id(c))
+# print( a is  b)
+# print(  b is  c)
+# print( c is a )
+#
+# d=-10
+# e=-9
+# f=-7
+# print(d)
+# print(e)
+# print(f)
+# print(id(a))
+# print(id(b))
+# print(id(c))
+# print(d is e)
+# print( a is d )
+# print( d is b )
+#
+# a=287
+# b=287
+# print(id(a))
+# print(id(b))
+# print(a is b)
