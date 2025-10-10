@@ -350,20 +350,59 @@
 #
 # print(s1.name,s1.age)
 # print(s2.name,s2.age)
+#
+# class Demo:
+#     x = 99
+#     y = 88
+#     def __init__(self):
+#         self.a=10
+#         self.b = 20
+#
+# d1=Demo()
+# d2=Demo()
+# d3=Demo()
+# print(Demo.x)
+# print(Demo.y)
+# Demo.x = 889
+# Demo.y = 888
+# print(Demo.x)
+# print(Demo.y)
 
-class Demo:
-    x = 99
-    y = 88
-    def __init__(self):
-        self.a=10
-        self.b = 20
+#
+# l1=[1,2,3]
+# for i in range(0,3):
+#     print("Index :", i," Ele:",l1[i])
 
-d1=Demo()
-d2=Demo()
-d3=Demo()
-print(Demo.x)
-print(Demo.y)
-Demo.x = 889
-Demo.y = 888
-print(Demo.x)
-print(Demo.y)
+
+# n = int(input("Enetr a number :"))
+# i=3
+# while i <= n:
+#     print(i,end=" ")
+#     i = i+1
+# print("\n pro excuted")
+# print("last i:" , i)
+
+
+#
+# class Farmer:
+#     r = 2.5
+#     def __init__(self,p,t):
+#         self.p = p
+#         self.t = t
+#
+#     def calcu(self):
+#         si = (self.p * self.t *(Farmer.r))/100
+#         print(si)
+#
+#
+# f1 = Farmer(100000,2)
+# f2 = Farmer(1500000,4)
+# f3 = Farmer(3000000,7)
+# f1.calcu()
+# f2.calcu()
+# f3.calcu()
+
+str1 = "Rama"
+print(str1)
+print(len(str1))
+print(type(str1))
