@@ -407,9 +407,9 @@
 # print(len(str1))
 # print(type(str1))
 
-n = int(input("Enter a number :"))
-i = 1
-while n > 0:
+n = int(input("Enter a number : "))
+diff = 1
+while n >= 0:
     print(n)
-    n = n - i
-    i += 1
+    n = n - diff
+    diff = diff + 1
