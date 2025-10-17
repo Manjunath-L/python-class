@@ -86,10 +86,10 @@
 # print("Hi {}".format(st1))
 # print("Good Afternoon {}".format(st1))
 # print(f"Bye {st1}")
-
-st1 = "Rama is drinking"
-print(st1.replace("is","was"))
-print(st1.startswith("Rama"))
-print(st1.endswith("drinking"))
-print(st1.startswith("Manju"))
-print(st1.endswith("water"))
+#
+# st1 = "Rama is drinking"
+# print(st1.replace("is","was"))
+# print(st1.startswith("Rama"))
+# print(st1.endswith("drinking"))
+# print(st1.startswith("Manju"))
+# print(st1.endswith("water"))
