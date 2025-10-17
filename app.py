@@ -543,14 +543,49 @@
 # else:
 #     print(f"{year} not a leap year")
 
+#
+# def checkleapyear(year):
+#     return (((year % 100 != 0) and (year % 4 == 0))  or (year % 400 == 0))
+#
+# start_year = int(input("Enter start year :"))
+# end_year = int(input("Enter a end year :"))
+#
+# if start_year > end_year:
+#     print("Invalid range of Year")
+# else:
+#     print("Leap year's!!")
+#     for i in range(start_year,end_year+1):
+#         flage = checkleapyear(i)
+#         if flage:
+#             print(i,end="\t")
+#     print()
+#     print("Non-Leap year's!!")
+#     for i in range(start_year, end_year + 1):
+#         flage = checkleapyear(i)
+#         if not flage:
+#             print(i, end="\t")
 
-year = int(input("Enter a year :"))
-def checkleapyear(year):
-    return (((year % 100 != 0) and (year % 4 == 0))  or (year % 400 == 0))
+def countdigits(n):
+    count = 0
+    while n > 0:
+        n = n // 10
+        count = count + 1
+    return count
 
-flage = checkleapyear(year)
+def ARM_number(n):
+    temp = n
+    ans = 0
+    power = countdigits(n)
+    while n > 0:
+        base = n % 10
+        ans = ans + (base ** power)
+        n = n // 10
+    return ans == temp
 
-if flage:
-    print(f"{year} is leap year")
+
+n = int(input("Enter a digit :"))
+flage = ARM_number(n)
+if  flage:
+    print("ASN")
 else:
-    print(f"{year} not leap year")
+    print("Not ASN")
