@@ -14,11 +14,19 @@
 # print(f"The count of cycle is {ans}.")
 
 
+def factor(n):
+    i = 1
+    count = 0
+    while i * i <= n:
+        if n % i == 0:
+            print(i, end=" ")
+            count += 1
+            if i != (n // i):
+                print(n // i, end=" ")
+                count += 1
+        i = i + 1
+    return count
+
 n = int(input("Enter a num :"))
-i = 1
-while i * i <= n:
-    if n % i == 0:
-        print(i,end= " ")
-        if i != (n//i):
-            print(n//i, end= " ")
-    i = i + 1
+count = factor(n)
+print("\n",count)
