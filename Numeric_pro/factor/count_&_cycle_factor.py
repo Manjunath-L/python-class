@@ -13,20 +13,22 @@
 # print(res)
 # print(f"The count of cycle is {ans}.")
 
-
 def factor(n):
     i = 1
     count = 0
+    count_factror = 0
     while i * i <= n:
+        count += 1
         if n % i == 0:
             print(i, end=" ")
-            count += 1
+            count_factror += 1
             if i != (n // i):
                 print(n // i, end=" ")
-                count += 1
+                count_factror += 1
         i = i + 1
-    return count
+    return [count,count_factror]
 
 n = int(input("Enter a num :"))
-count = factor(n)
-print("\n",count)
+a,b=factor(n)
+print(f"\ncount cycle : {a}")
+print(f"count fact : {b}")
