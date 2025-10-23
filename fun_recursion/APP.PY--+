@@ -1,0 +1,11 @@
+def printnum4(n):
+    if n <= 0:
+        return
+    print(n)
+    printnum4(n - 1)
+    print(n)
+
+
+n = int(input("Enter a number :"))
+printnum4(n)
+

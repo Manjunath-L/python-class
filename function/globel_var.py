@@ -14,6 +14,6 @@ def fun2():
     print(c)
 
 print(a)
-fun1()
+print(fun1)
 fun2()
 print(a)
