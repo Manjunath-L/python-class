@@ -7,8 +7,10 @@ while i <= 4:
     i += 1
 
 print(l)
+
 for i in l:
-    print(i)
+    if i % 2 == 0:
+        print(i)
 
 i = 0
 n = len(l)
