@@ -8,4 +8,3 @@ def printnum4(n):
 
 n = int(input("Enter a number :"))
 printnum4(n)
-

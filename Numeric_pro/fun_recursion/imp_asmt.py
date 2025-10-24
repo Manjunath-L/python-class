@@ -7,3 +7,6 @@ def printnum(n, i=1):
 
 n = int(input("Enter a number: "))
 printnum(n)
+
+
+
