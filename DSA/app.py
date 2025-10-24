@@ -7,3 +7,4 @@ for i in range(len(arr_sorted) - 2, -1, -1):
         break
     else:
         print("-1")
+
