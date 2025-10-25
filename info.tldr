@@ -34,11 +34,33 @@
 	},
 	"records": [
 		{
-			"gridSize": 10,
-			"name": "",
+			"id": "pointer:pointer",
+			"typeName": "pointer",
+			"x": 469.6000061035156,
+			"y": 480,
+			"lastActivityTimestamp": 1761309212590,
+			"meta": {}
+		},
+		{
+			"x": 0,
+			"y": 0,
+			"z": 1,
 			"meta": {},
-			"id": "document:document",
-			"typeName": "document"
+			"id": "camera:page:page",
+			"typeName": "camera"
+		},
+		{
+			"editingShapeId": null,
+			"croppingShapeId": null,
+			"selectedShapeIds": [],
+			"hoveredShapeId": null,
+			"erasingShapeIds": [],
+			"hintingShapeIds": [],
+			"focusedGroupId": null,
+			"meta": {},
+			"id": "instance_page_state:page:page",
+			"pageId": "page:page",
+			"typeName": "instance_page_state"
 		},
 		{
 			"meta": {},
@@ -48,18 +70,19 @@
 			"typeName": "page"
 		},
 		{
-			"id": "pointer:pointer",
-			"typeName": "pointer",
-			"x": 661.4000244140625,
-			"y": 515.2000122070312,
-			"lastActivityTimestamp": 1760716407558,
-			"meta": {}
+			"gridSize": 10,
+			"name": "",
+			"meta": {},
+			"id": "document:document",
+			"typeName": "document"
 		},
 		{
 			"followingUserId": null,
 			"opacityForNextShape": 1,
 			"stylesForNextShape": {
-				"tldraw:fill": "none"
+				"tldraw:fill": "semi",
+				"tldraw:color": "light-blue",
+				"tldraw:geo": "arrow-right"
 			},
 			"brush": null,
 			"scribbles": [],
@@ -74,7 +97,7 @@
 			"screenBounds": {
 				"x": 0,
 				"y": 0,
-				"w": 1115.2000732421875,
+				"w": 1180,
 				"h": 702.4000244140625
 			},
 			"insets": [
@@ -101,27 +124,6 @@
 			"id": "instance:instance",
 			"currentPageId": "page:page",
 			"typeName": "instance"
-		},
-		{
-			"editingShapeId": null,
-			"croppingShapeId": null,
-			"selectedShapeIds": [],
-			"hoveredShapeId": null,
-			"erasingShapeIds": [],
-			"hintingShapeIds": [],
-			"focusedGroupId": null,
-			"meta": {},
-			"id": "instance_page_state:page:page",
-			"pageId": "page:page",
-			"typeName": "instance_page_state"
-		},
-		{
-			"x": 0,
-			"y": 0,
-			"z": 1,
-			"meta": {},
-			"id": "camera:page:page",
-			"typeName": "camera"
 		}
 	]
 }
