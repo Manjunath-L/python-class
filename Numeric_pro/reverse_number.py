@@ -7,7 +7,6 @@ def reverseNumber(n):
         rem = n % 10
         rev = (rev * 10 ) + rem
         n = n // 10
-
     if temp < 0:
         rev = rev * (-1)
     return rev

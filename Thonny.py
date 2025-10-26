@@ -1,9 +1,6 @@
-def printnum(n, i=1):
-    if i > n:
-        return
-    print(i)
-    printnum(n, i + 1)
-    print(i)
 
-n = int(input("Enter a number: "))
-printnum(n)
+def isSameAfterReversals(num):
+    return num == 0 or num % 10 != 0
+
+num = int(input("Enter a number :"))
+print(isSameAfterReversals(num))
