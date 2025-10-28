@@ -1,15 +1,15 @@
-def Gcd_number(n1,n2,lower,i,hcf):
+def GCD_num(n1,n2,i,lower,hcf):
+    if n2 < n1:
+        lower = n2
     if i > lower:
         return hcf
     if n1 % i == 0 and n2 % i == 0:
         hcf = i
-    return Gcd_number(n1,n2,lower,i+1,hcf)
+    return GCD_num(n1,n2,(i+1),lower,hcf)
 
 n1 = int(input("Enter a number :"))
-n2 = int(input("Enter a number2 :"))
-lower = n1
-if n2 < n1:
-    lower = n2
-hcf = 1
-res = Gcd_number(n1,n2,lower,2,hcf)
+n2 = int(input("Enter a number :"))
+lower  = n1
+hcf  = 1
+res = GCD_num(n1,n2,2,lower,hcf)
 print(res)
