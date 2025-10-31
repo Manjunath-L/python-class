@@ -98,3 +98,26 @@ Expression : A statement that performs an operation
 
  
 
+Note:
+
+ 	- Internally "%" --> mod performs floor division operation
+
+
+
+Divsion OP:
+
+a. // \[floor div]
+
+>> non-decimal quotint
+eg:-
+
+print(10//2)
+
+
+
+=================================================================================
+
+2\. Comparison OP:
+
+ 	-
+
