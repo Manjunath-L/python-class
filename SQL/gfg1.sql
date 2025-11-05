@@ -15,7 +15,7 @@ VALUES
 
 SELECT * FROM student;
 
-ALTER TABLE student
+ALTER TABLE studentstudent
 add Department VARCHAR(50);
 
 UPDATE student
@@ -29,3 +29,7 @@ DROP TABLE student;
 TRUNCATE TABLE  student;
 
 alter table student modify age bigint;
+use school;
+desc product;
+
+select * from product;

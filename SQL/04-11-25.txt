@@ -1,0 +1,391 @@
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| demo               |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| school             |
+| sys                |
+| world              |
++--------------------+
+8 rows in set (0.01 sec)
+
+mysql> use school;
+Database changed
+mysql> show tables;
++------------------+
+| Tables_in_school |
++------------------+
+| customer         |
+| faculty          |
+| product          |
+| student          |
++------------------+
+4 rows in set (0.00 sec)
+
+mysql> desc product;
++----------+-----------------------+------+-----+---------+-------+
+| Field    | Type                  | Null | Key | Default | Extra |
++----------+-----------------------+------+-----+---------+-------+
+| PID      | int unsigned          | NO   | PRI | NULL    |       |
+| PNAME    | varchar(20)           | NO   |     | NULL    |       |
+| QUANTITY | int unsigned          | YES  |     | 2       |       |
+| PRICE    | decimal(7,2) unsigned | NO   |     | NULL    |       |
++----------+-----------------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> insert into product values(1,"pen",3,1),(2,"book",40,4);
+Query OK, 2 rows affected (0.10 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from product;
++-----+-------+----------+-------+
+| PID | PNAME | QUANTITY | PRICE |
++-----+-------+----------+-------+
+|   1 | pen   |        3 |  1.00 |
+|   2 | book  |       40 |  4.00 |
++-----+-------+----------+-------+
+2 rows in set (0.00 sec)
+
+mysql> UPDATE PRODUCT
+    -> SET QUANTITY = PRICE,
+    ->     PRICE = QUANTITY;
+Query OK, 2 rows affected (0.02 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> SET QUANTITY = PRICE,
+    -> UPDATE PRODUCT
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'UPDATE PRODUCT' at line 2
+mysql> select * from product;
++-----+-------+----------+-------+
+| PID | PNAME | QUANTITY | PRICE |
++-----+-------+----------+-------+
+|   1 | pen   |        1 |  1.00 |
+|   2 | book  |        4 |  4.00 |
++-----+-------+----------+-------+
+2 rows in set (0.00 sec)
+
+mysql> insert into product(pid,pname,quantity,price) values(3,"text_book",6,70);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from product;
++-----+-----------+----------+-------+
+| PID | PNAME     | QUANTITY | PRICE |
++-----+-----------+----------+-------+
+|   1 | pen       |        1 |  1.00 |
+|   2 | book      |        4 |  4.00 |
+|   3 | text_book |        6 | 70.00 |
++-----+-----------+----------+-------+
+3 rows in set (0.00 sec)
+
+mysql> insert into product(pid,pname,quantity,price) values(4,"laptop",1,70,000);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into product(pid,pname,quantity,price) values(4,"laptop",1,70000);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from product;
++-----+-----------+----------+----------+
+| PID | PNAME     | QUANTITY | PRICE    |
++-----+-----------+----------+----------+
+|   1 | pen       |        1 |     1.00 |
+|   2 | book      |        4 |     4.00 |
+|   3 | text_book |        6 |    70.00 |
+|   4 | laptop    |        1 | 70000.00 |
++-----+-----------+----------+----------+
+4 rows in set (0.00 sec)
+
+mysql> insert into product(pid,pname,quantity,price) values(4,"ink_pen",10,40);
+ERROR 1062 (23000): Duplicate entry '4' for key 'product.PRIMARY'
+mysql> insert into product(pid,pname,quantity,price) values(5,"ink_pen",10,40);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from product;
++-----+-----------+----------+----------+
+| PID | PNAME     | QUANTITY | PRICE    |
++-----+-----------+----------+----------+
+|   1 | pen       |        1 |     1.00 |
+|   2 | book      |        4 |     4.00 |
+|   3 | text_book |        6 |    70.00 |
+|   4 | laptop    |        1 | 70000.00 |
+|   5 | ink_pen   |       10 |    40.00 |
++-----+-----------+----------+----------+
+5 rows in set (0.00 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| amazon             |
+| demo               |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| school             |
+| sys                |
+| world              |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> use amazon;
+Database changed
+mysql> show tables;
++------------------+
+| Tables_in_amazon |
++------------------+
+| customer         |
+| dept             |
+| emp              |
+| location         |
+| orders           |
+| product          |
++------------------+
+6 rows in set (0.00 sec)
+
+mysql> desc orders;
++---------------+------+------+-----+---------+-------+
+| Field         | Type | Null | Key | Default | Extra |
++---------------+------+------+-----+---------+-------+
+| ORDER_ID      | int  | NO   | PRI | NULL    |       |
+| PRODUCT_ID    | int  | NO   |     | NULL    |       |
+| ORDER_DATE    | date | NO   |     | NULL    |       |
+| DELIVERY_DATE | date | NO   |     | NULL    |       |
+| EID           | int  | NO   |     | NULL    |       |
++---------------+------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> use school;
+Database changed
+mysql> select * from product;
++-----+-----------+----------+----------+
+| PID | PNAME     | QUANTITY | PRICE    |
++-----+-----------+----------+----------+
+|   1 | pen       |        1 |     1.00 |
+|   2 | book      |        4 |     4.00 |
+|   3 | text_book |        6 |    70.00 |
+|   4 | laptop    |        1 | 70000.00 |
+|   5 | ink_pen   |       10 |    40.00 |
++-----+-----------+----------+----------+
+5 rows in set (0.00 sec)
+
+mysql> select * from product;
++-----+-----------+----------+----------+
+| PID | PNAME     | QUANTITY | PRICE    |
++-----+-----------+----------+----------+
+|   1 | pen       |        1 |     1.00 |
+|   2 | book      |        4 |     4.00 |
+|   3 | text_book |        6 |    70.00 |
+|   4 | laptop    |        1 | 70000.00 |
+|   5 | ink_pen   |       10 |    40.00 |
++-----+-----------+----------+----------+
+5 rows in set (0.00 sec)
+
+mysql> update product
+    -> set pname='ball_pen'
+    -> where pid = 5;
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from product;
++-----+-----------+----------+----------+
+| PID | PNAME     | QUANTITY | PRICE    |
++-----+-----------+----------+----------+
+|   1 | pen       |        1 |     1.00 |
+|   2 | book      |        4 |     4.00 |
+|   3 | text_book |        6 |    70.00 |
+|   4 | laptop    |        1 | 70000.00 |
+|   5 | ball_pen  |       10 |    40.00 |
++-----+-----------+----------+----------+
+5 rows in set (0.00 sec)
+
+mysql> delete
+    -> from product
+    -> where pid = 5;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from product;
++-----+-----------+----------+----------+
+| PID | PNAME     | QUANTITY | PRICE    |
++-----+-----------+----------+----------+
+|   1 | pen       |        1 |     1.00 |
+|   2 | book      |        4 |     4.00 |
+|   3 | text_book |        6 |    70.00 |
+|   4 | laptop    |        1 | 70000.00 |
++-----+-----------+----------+----------+
+4 rows in set (0.00 sec)
+
+mysql> truncate table product;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> desc product;
++----------+-----------------------+------+-----+---------+-------+
+| Field    | Type                  | Null | Key | Default | Extra |
++----------+-----------------------+------+-----+---------+-------+
+| PID      | int unsigned          | NO   | PRI | NULL    |       |
+| PNAME    | varchar(20)           | NO   |     | NULL    |       |
+| QUANTITY | int unsigned          | YES  |     | 2       |       |
+| PRICE    | decimal(7,2) unsigned | NO   |     | NULL    |       |
++----------+-----------------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> select * from product;
+Empty set (0.00 sec)
+
+mysql> drop table product;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> select * from product;
+ERROR 1146 (42S02): Table 'school.product' doesn't exist
+mysql> desc product;
+ERROR 1146 (42S02): Table 'school.product' doesn't exist
+mysql> drop database school;
+Query OK, 3 rows affected (0.07 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| amazon             |
+| demo               |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+8 rows in set (0.00 sec)
+
+mysql> drop database demo;
+Query OK, 1 row affected (0.03 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| amazon             |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+7 rows in set (0.00 sec)
+
+mysql> use amazon;
+Database changed
+mysql> select * from emp;
++------+---------+----------+------------+--------+------------+------+------------+-----------+---------+------+------+
+| EID  | FNAME   | LNAME    | DOB        | GENDER | JOB        | MGR  | DOJ        | SAL       | COMM    | DNO  | CID  |
++------+---------+----------+------------+--------+------------+------+------------+-----------+---------+------+------+
+| 1701 | RAHUL   | MUKARJEE | 1991-02-19 | M      | MANAGER    | 1702 | 2017-04-17 | 100000.00 |    NULL |  111 | NULL |
+| 1702 | SAMEER  | KHAN     | 1995-04-20 | M      | MANAGER    | 2001 | 2017-07-07 |  90000.00 |    NULL |  110 | NULL |
+| 1801 | JAHNAVI | NAIK     | 1996-04-11 | F      | DISPATCHER | 1702 | 2020-02-15 | 450000.00 | 1000.00 |  110 | NULL |
+| 1901 | SHIVANI | RAI      | 1998-11-07 | F      | TESTER     | 2201 | 2019-12-12 | 450000.00 |    NULL |  113 |  502 |
+| 1902 | ABHIJIT | GOWDA    | 1997-12-25 | M      | DISPATCHER | 1702 | 2019-02-28 |  50000.00 |    NULL |  110 |  505 |
+| 1903 | KARAN   | BHAT     | 1997-12-26 | M      | SALESMAN   | 1701 | 2019-12-26 |  45000.00 |    NULL |  111 |  506 |
+| 2001 | MURALI  | KRISHNAN | 1998-06-08 | M      | DISPATCHER | 2201 | 2020-03-15 |  45000.00 | 1000.00 |  110 | NULL |
+| 2002 | DHARANI | PATIL    | 1998-11-10 | F      | DEVELOPER  | 2001 | 2021-06-20 |  30000.00 | 3000.00 |  113 | NULL |
+| 2101 | RASHMI  | GOWDA    | 1995-10-03 | F      | SALESMAN   | 1701 | 2021-01-02 |  45000.00 | 3000.00 |  111 | NULL |
+| 2102 | FARIYA  | TAJ      | 1999-01-03 | F      | DEVELOPER  | 2001 | 2021-03-01 |  32000.00 | 3600.00 |  113 | NULL |
+| 2103 | PRIYA   | SHETTY   | 1998-03-20 | F      | ACCOUNTANT | 2001 | 2021-05-01 |  32000.00 | 3600.00 |  112 | NULL |
+| 2104 | AMAN    | RAI      | 1998-08-15 | M      | SALESMAN   | 1701 | 2021-12-26 |  40000.00 |    NULL |  111 | NULL |
+| 2201 | KIRAN   | RAJ      | 1999-09-21 | M      | ACCOUNTANT | NULL | 2022-08-28 |  30000.00 | 3600.00 |  115 |  503 |
++------+---------+----------+------------+--------+------------+------+------------+-----------+---------+------+------+
+13 rows in set (0.00 sec)
+
+mysql> select fname from emp;
++---------+
+| fname   |
++---------+
+| RAHUL   |
+| SAMEER  |
+| JAHNAVI |
+| SHIVANI |
+| ABHIJIT |
+| KARAN   |
+| MURALI  |
+| DHARANI |
+| RASHMI  |
+| FARIYA  |
+| PRIYA   |
+| AMAN    |
+| KIRAN   |
++---------+
+13 rows in set (0.00 sec)
+
+mysql> select FNAME,SAL,DOB form emp; --<-- DQL commands
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'emp' at line 1
+    -> select FNAME,SAL,DOB form emp; --<-- DQL commands;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '--<
+select FNAME,SAL,DOB form emp' at line 1
+    -> select FNAME,SAL,DOB form emp; --<-- DQL commands^C
+mysql> select FNAME,SAL,DOB form emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'emp' at line 1
+mysql> select * from emp;
++------+---------+----------+------------+--------+------------+------+------------+-----------+---------+------+------+
+| EID  | FNAME   | LNAME    | DOB        | GENDER | JOB        | MGR  | DOJ        | SAL       | COMM    | DNO  | CID  |
++------+---------+----------+------------+--------+------------+------+------------+-----------+---------+------+------+
+| 1701 | RAHUL   | MUKARJEE | 1991-02-19 | M      | MANAGER    | 1702 | 2017-04-17 | 100000.00 |    NULL |  111 | NULL |
+| 1702 | SAMEER  | KHAN     | 1995-04-20 | M      | MANAGER    | 2001 | 2017-07-07 |  90000.00 |    NULL |  110 | NULL |
+| 1801 | JAHNAVI | NAIK     | 1996-04-11 | F      | DISPATCHER | 1702 | 2020-02-15 | 450000.00 | 1000.00 |  110 | NULL |
+| 1901 | SHIVANI | RAI      | 1998-11-07 | F      | TESTER     | 2201 | 2019-12-12 | 450000.00 |    NULL |  113 |  502 |
+| 1902 | ABHIJIT | GOWDA    | 1997-12-25 | M      | DISPATCHER | 1702 | 2019-02-28 |  50000.00 |    NULL |  110 |  505 |
+| 1903 | KARAN   | BHAT     | 1997-12-26 | M      | SALESMAN   | 1701 | 2019-12-26 |  45000.00 |    NULL |  111 |  506 |
+| 2001 | MURALI  | KRISHNAN | 1998-06-08 | M      | DISPATCHER | 2201 | 2020-03-15 |  45000.00 | 1000.00 |  110 | NULL |
+| 2002 | DHARANI | PATIL    | 1998-11-10 | F      | DEVELOPER  | 2001 | 2021-06-20 |  30000.00 | 3000.00 |  113 | NULL |
+| 2101 | RASHMI  | GOWDA    | 1995-10-03 | F      | SALESMAN   | 1701 | 2021-01-02 |  45000.00 | 3000.00 |  111 | NULL |
+| 2102 | FARIYA  | TAJ      | 1999-01-03 | F      | DEVELOPER  | 2001 | 2021-03-01 |  32000.00 | 3600.00 |  113 | NULL |
+| 2103 | PRIYA   | SHETTY   | 1998-03-20 | F      | ACCOUNTANT | 2001 | 2021-05-01 |  32000.00 | 3600.00 |  112 | NULL |
+| 2104 | AMAN    | RAI      | 1998-08-15 | M      | SALESMAN   | 1701 | 2021-12-26 |  40000.00 |    NULL |  111 | NULL |
+| 2201 | KIRAN   | RAJ      | 1999-09-21 | M      | ACCOUNTANT | NULL | 2022-08-28 |  30000.00 | 3600.00 |  115 |  503 |
++------+---------+----------+------------+--------+------------+------+------------+-----------+---------+------+------+
+13 rows in set (0.00 sec)
+
+mysql> select fname,dob,job from emp;
++---------+------------+------------+
+| fname   | dob        | job        |
++---------+------------+------------+
+| RAHUL   | 1991-02-19 | MANAGER    |
+| SAMEER  | 1995-04-20 | MANAGER    |
+| JAHNAVI | 1996-04-11 | DISPATCHER |
+| SHIVANI | 1998-11-07 | TESTER     |
+| ABHIJIT | 1997-12-25 | DISPATCHER |
+| KARAN   | 1997-12-26 | SALESMAN   |
+| MURALI  | 1998-06-08 | DISPATCHER |
+| DHARANI | 1998-11-10 | DEVELOPER  |
+| RASHMI  | 1995-10-03 | SALESMAN   |
+| FARIYA  | 1999-01-03 | DEVELOPER  |
+| PRIYA   | 1998-03-20 | ACCOUNTANT |
+| AMAN    | 1998-08-15 | SALESMAN   |
+| KIRAN   | 1999-09-21 | ACCOUNTANT |
++---------+------------+------------+
+13 rows in set (0.00 sec)
+
+mysql> select sal*12 from emp;
++------------+
+| sal*12     |
++------------+
+| 1200000.00 |
+| 1080000.00 |
+| 5400000.00 |
+| 5400000.00 |
+|  600000.00 |
+|  540000.00 |
+|  540000.00 |
+|  360000.00 |
+|  540000.00 |
+|  384000.00 |
+|  384000.00 |
+|  480000.00 |
+|  360000.00 |
++------------+
+13 rows in set (0.00 sec)
+
+mysql>
