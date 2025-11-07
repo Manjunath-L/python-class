@@ -1,11 +1,12 @@
-def sum_of_num(n,sum):
-    if n <= 0:
-        return sum
-    m = n %10
-    sum = sum + m
-    n = n//10
-    return sum_of_num(n,sum)
-
-n = int(input("Enter a number :"))
-res = sum_of_num(n,0)
-print(res)
+n = 4
+noc = n
+for i in range(1,n*2):
+    for k in range(n,noc,-1):
+        print(" ",end=" ")
+    for j in range(1,noc+1):
+        print(j,end=" ")
+    print()
+    if i < n:
+        noc -= 1
+    else:
+        noc += 1

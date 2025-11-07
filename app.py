@@ -543,26 +543,26 @@
 # else:
 #     print(f"{year} not a leap year")
 
-#
-# def checkleapyear(year):
-#     return (((year % 100 != 0) and (year % 4 == 0))  or (year % 400 == 0))
-#
-# start_year = int(input("Enter start year :"))
-# end_year = int(input("Enter a end year :"))
-#
-# if start_year > end_year:
-#     print("Invalid range of Year")
-# else:
-#     print("Leap year's!!")
-#     for i in range(start_year,end_year+1):
-#         flage = checkleapyear(i)
-#         if flage:
-#             print(i,end="\t")
-#     print()
-#     print("Non-Leap year's!!")
-#     for i in range(start_year, end_year + 1):
-#         flage = checkleapyear(i)
-#         if not flage:
-#             print(i, end="\t")
+
+def checkleapyear(year):
+    return (((year % 100 != 0) and (year % 4 == 0))  or (year % 400 == 0))
+
+start_year = int(input("Enter start year :"))
+end_year = int(input("Enter a end year :"))
+
+if start_year > end_year:
+    print("Invalid range of Year")
+else:
+    print("Leap year's!!")
+    for i in range(start_year,end_year+1):
+        flage = checkleapyear(i)
+        if flage:
+            print(i,end="\t")
+    print()
+    print("Non-Leap year's!!")
+    for i in range(start_year, end_year + 1):
+        flage = checkleapyear(i)
+        if not flage:
+            print(i, end="\t")
 
 
