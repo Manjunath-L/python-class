@@ -1,0 +1,374 @@
+29. WQTD DETAILS OF THE EMP WHO THEY ARE ACTING AS CUSTOMER TO THEIR COMPANY?
+------------------------------------------------------------------------------
+SELECT *
+FROM EMP
+WHERE CID IS NOT NULL;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+30.WQTD DETAILS OF EMP WHO ARE WORKING AS SALESMAN,DEELOPER OR DISPACTER BUT NOT IN THE DEPT
+   110,111,112 AND GETTING SAL IN THE RANGE OF 30000 TO 50000 BUT NOT BORN IN THE YEAR 1995 AND THEY HAVE
+   REPORTING MANAGER?
+
+-----------------------------------------------------------------------------------------------------------
+
+SELECT *
+FROM EMP
+WHERE JOB IN('SALESMAN','DEVELOPER','DISPATCHER') AND 
+      DNO NOT IN(110,111,112) AND
+      SAL BETWEEN 30000 AND 50000 AND
+      DOB NOT BETWEEN '1995-01-01' AND '1995-12-31' AND
+      MGR IS NOT NULL;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+31.WQTD DETAILS OF EMP WHO FNAME IS END WITH R?
+-------------------------------------------------
+
+SELECT *
+FROM EMP
+WHERE FNAME LIKE '%R';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+32.WQTD DETAILS OF EMP WHO'S FNAME CONTAIN ATLEAST 3 'A' AND GETTING SAL MORE THAN 40000?
+-----------------------------------------------------------------------------------------
+SELECT *
+FROM EMP
+WHERE FNAME LIKE '%A%A%' AND SAL > 40000;
+
+
+%A%A%A%
+
+
+
+
+
+
+
+
+
+
+
+
+33.WQTD DEATILS,IF FNAME START WITH S OR A?
+---------------------------------
+
+SELECT *
+FROM EMP
+WHERE FNAME LIKE 'S%' OR FNAME LIKE 'A%';
+
+
+
+
+
+
+
+
+
+34.WQTD DETAILS OF EMP WHO WERE HIRED IN THE YEAR 2019?
+
+--------------------------------------------------------
+SELECT *
+FROM EMP
+WHERE DOJ LIKE '2019%';
+
+
+
+
+
+
+35. WQTD DETAILS OF EMP WHO WERE BORN  IN THE MONTH MARCH?
+----------------------------------------------------------
+SELECT *
+FROM EMP
+WHERE DOB LIKE '%-03-%';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+36.WQTD DETAILS OF EMP WHO WERE BORN IN THE DATE 03?
+-----------------------------------------------------
+
+SELECT *
+FROM EMP
+WHERE DOB LIKE '%03';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+37. WQTD FNAME FROM EMP TABLE WHO'S NOT START WITH S?
+-----------------------------------------------------
+
+NOT LIKE: IT IS USED TO MATCH PATTERN. 
+--------- IT WILL EXCLUDE THE PATTERN.
+
+
+SELECT *
+FROM EMP
+WHERE FNAME NOT LIKE 'S%';
+
+
+
+
+
+
+
+38.WQTD DETAILS OF THE EMP IF THE EMP WERE NOT BORN IN THE YEAR 1995?
+----------------------------------------------------------------------
+
+SELECT *
+FROM EMP
+WHERE DOB NOT LIKE '1995%';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+39. WQTD DETAILS OF THE EMP WHO FNAME NOT STARTING WITH S AND D?
+-----------------------------------------------------------------
+
+SELECT *
+FROM EMP
+WHERE FNAME NOT LIKE 'S%' AND FNAME NOT LIKE 'D%';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+40.WQTD FNAME,LNAME IF THE LNAME CONTAINS EXACTLY 3 CHARATERS?
+--------------------------------------------------------------
+
+SELECT *
+FROM EMP
+WHERE LNAME LIKE '___';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+41.WQTD DETAILS OF  THE EMP IF THE EMP FNAME LAST 3RD CHARACTER IS E AND LNAME LAST CHARACTER  IS N AND WORKING
+   AS SALESMAN OR MANAGER BUT NOT AS A FEMALE?
+----------------------------------------------------------------------------------------------------------------
+SELECT *
+FROM EMP
+WHERE 
+
+
+
