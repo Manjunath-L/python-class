@@ -1,0 +1,306 @@
+
+
+FUNCTION:
+ > SET OF INSTRUCTION TO  PERFORM SPECIFIC TASK.
+
+TYPES OF FUNCTION:
+------------------
+1. USER DEFINED FUNCTION
+    1. TRIGGERS
+    2. PROCEDURES
+
+2. INBUILT FUNCTION:
+   1. AGGREGATE FUNCTION
+   2. CHARACTER FUNCTION
+   3. NUMBER FUNCTION
+   4. DATE FUNCTION
+
+1. AGGREGATE FUNCTION:
+----------------------
+1. MAX():
+     TO OBTAIN THE MAXIMUM VALUE FROM THE GIVEN COL:
+
+  SYNTAX:  
+        SELECT MAX(COL_NAME)
+
+2. MIN():
+     TO OBTAIN THE MINIMUM VALUE FROM THE GIVEN COL.
+
+SYNTAX: 
+    SELECT MIN(COL_NAME)
+
+3. AVG():
+    TO OBTAIN THE AVERAGE VALUE FROM THE GIVEN COL.
+
+ SYNTAX:
+     SELECT AVG(COL_NAME)
+
+4. SUM():  
+       TO OBTAIN THE SUM OF ALL THE VALUES WE USE SUM().
+
+    SYNTAX:
+      SELECT SUM(COL_NAME)
+
+5. COUNT()
+      TO OBTAIN THE NUMBER OF VALUES OF THE COL.
+   SYNTAX: 
+     SELECT COUNT(*)
+
+NOTE: 
+  > IN COUNT FUNCTION ONLY WE USE THE * AS AGRUMENT.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+34. WQTD MAX,MIN,SUM,AVG,SAL FROM THE EMP?
+------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+35. WQTD NUMBER OF EMP WHO ARE WORKING AS SALESMAN?
+--------------------------------------------------------
+SELECT COUNT(*)
+FROM EMP
+WHERE JOB='SALESMAN';
+
+
+
+
+
+
+
+36. WQTD NUMBER OF EMP WORKING IN EACH DEPT
+-------------------------------------------
+
+SELECT COUNT(*),DNO
+FROM EMP
+GROUP BY DNO;
+
+
+
+
+
+
+
+
+
+
+GROUP BY:
+---------
+IT IS USED TO CREATE GROUPS.
+
+
+CHARACTERISTICS OF GROUP BY CLAUSE:
+-----------------------------------
+> IT EXECUTES ROW BY ROW
+> IT EXECUTES AFTER THE FROM CLAUSE.
+> IT EXECUTES ROW BY ROW BUT IT WILL BE CREATES GROUPS.
+> WE CAN HAVE GROUP BY CLAUSE WITH OR WITHOUT USING THE FROM CLAUSE.
+
+GROUP BY EXPRESSION:
+--------------------
+THE COLUMNS WHICH WE ARE PASSING INSIDE GROUP BY CLAUSE WILL BE CONSIDERED AS GROUP BY
+EXPRESSION.
+
+
+ORDER OF EXECUTION:
+-------------------
+1. FROM
+2. [WHERE]
+3. GROUP BY
+4. SELECT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+37. WQTD TOTAL SAL SPENT BY THE COMPANY IN EACH JOB ROLE IF THE JOB ROLES ARE 
+    SALESMAN,MANAGER OR DEVELOPER?
+------------------------------------------------------------------------------
+
+SELECT SUM(SAL),JOB
+FROM EMP
+WHERE JOB IN('SALESMAN','MANAGER','DEVELOPER')
+GROUP BY JOB;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+38.WQTD NUMBER OF DIFFERENT JOB ROLE PRESENT IN EMP TABLE?
+---------------------------------------------------------
+SELECT COUNT(DISTINCT JOB)
+FROM EMP;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+39. WQTD MAXIMUN SAL GIVEN TO EACH DEPT IF THE MAXIMUN SAL IS GREATER THAN 50000?
+----------------------------------------------------------------------------------
+SELECT MAX(SAL),DNO
+FROM EMP
+GROUP BY DNO
+HAVING MAX(SAL)>50000;
+
+
+
+
+
+
+
+
+
+
+
+	HAVING CLAUSE:
+	-------------
+	IT IS USED TO FILTER THE GROUP FUNCTION
+
+	CHARACTERISTICS OF HAVING CLAUSE:
+	---------------------------------
+	> IT EXECUTES GROUP BY GROUP
+	> IT EXECUTES AFTER THE GROUP BY CLAUSE
+	> IT EVELUATE TRUE OF FALSE
+	> WE CAN PASS MULTIPLE CONDITION IN HAVING CLAUSE.
+	> WE CAN'T USE NORMAL COLUMNS INSIDE HAVING CLAUSE.
+
+	ORDER OF EXECUTION:
+	------------------
+	1. FROM 
+	2. WHERE
+	3. GROUP BY
+	4. HAVING 
+	5. SELECT
+
+
+
+
+
+40. WQTD MAXIMUM SAL AND MINIMUN SAL GIVEN TO EACH DEPT IF THE EMP ARE GETTING SAL 
+     MORE THAN 32000 AND DEPT CONTAIN ATLEAST 3 EMP IN IT?
+-------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
