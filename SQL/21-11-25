@@ -1,0 +1,34 @@
+
+-- WQTD DETAILS OF THE EMP WHO ARE REPORTING TO MURULI MANAGER?
+SELECT * 
+FROM EMP  
+WHERE MGR IN (SELECT EID
+                FROM EMP 
+                WHERE EID IN(SELECT MGR
+                            FROM EMP 
+                            WHERE FNAME = 'MURALI'));
+
+-- WQTD DETATILS OF DEPT OF THE EMP WHO ARE REPORING TO RAHUL'S MANAGER'S MANAGER?
+
+SELECT *
+FROM dept
+WHERE DNO IN (SELECT DNO 
+                FROM emp
+                WHERE MGR IN(SELECT EID
+                                FROM emp
+                                WHERE EID IN (SELECT MGR
+                                                FROM emp
+                                                WHERE EID IN (SELECT MGR
+                                                                FROM emp
+                                                                WHERE FNAME = 'RAHUL'))))
+
+
+
+SELECT E.FNAME,D.DNAME
+FROM EMP E CROSS JOIN dept D;
+
+SELECT *
+FROM EMP E CROSS JOIN dept D;
+
+SELECT D.DNO,E.DNO
+FROM EMP E CROSS JOIN dept D;

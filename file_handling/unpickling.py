@@ -5,14 +5,13 @@ class Employee:
         self.ename = ename
         self.edes = edes
         self.esal = esal
-    def disp(self):
+    def display(self):
         print(self.eid)
         print(self.ename)
         print(self.edes)
         print(self.esal)
-e = Employee(101,"Rama","dev",25000)
-f = open("name.txt","wb")
-pickle.dump(e,f)
+f = open("name.txt","rb")
+e = pickle.load(f)
+e.display()
+print("object retrieved")
 f.close()
-print("Object is stored into the text file")
-
