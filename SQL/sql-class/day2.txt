@@ -1,0 +1,207 @@
+TO DROP PRIMARY KEY:
+---------------------
+ALTER TABLE CUSTOMER
+DROP PRIMARY KEY;
+
+TO DROP AUTO_INCREMENT:
+-----------------------
+
+ALTER TABLE TABLE_NAME
+MODIFY EXISTING COL NAME EXISTING_DATA TYPE NULL/NOT NULL;
+
+
+ALTER TABLE CUSTOMER
+MODIFY CID INT UNSIGNED NOT NULL;
+
+DML:
+----
+INSERT: INSERT THE RECORDS TO THE TABLE WE USE INSERT COMMAND.
+------
+
+
+SYNTAX 1:[WEN WE KNOW NUMBER OF COLS AND ORDER CLOS WE CAN USE THIS SYNTAX:];
+-----------------------------------------------------------------------------
+  INSERT INTO TABLE_NAME VALUES(V1,V2,V3,.,.....);
+
+  INSERT INTO PRODUCT VALUES(1,'LAPTOP',10,2);
+  
+ INSERT INTO PRODUCT VALUES(4,'MOBILE',70,3),(3,'BELT',90,1);
+
+SYNTAX 2:[WE KNOW THE COLM BUT DON'T KNOW THE ORDER]
+----------------------------------------------------
+
+INSERT INTO TABLE_NAME (COL1,COL2,.....)VALUES(V1.,V2,.......);
+
+
+INSERT INTO PRODUCT(PNAME,PID,PRICE,QUANTITY)VALUES('OLD MONK',6,99,5);
+
+SYNTAX 3:
+--------
+INSERT INTO TABLE_NAME(SELECT STATEMENT);
+
+
+UPDATE:
+------
+ TO UPDATE THE RECORDS IN THE TABLE.
+
+
+SYNATX:
+------
+
+  UPDATE TABLE_NAME
+  SET COL1=V1..........
+  [WHERE CONDITION];
+
+
+
+UPDATE PRODUCT
+SET PNAME='BIRYANI';
+
+UPDATE PRODUCT
+SET PNAME='GEE RICE'
+WHERE PID=1;
+
+DELETE:
+------
+   DELETE RECORDS WE USE DELETE COMMAND.
+
+
+SYNATX:
+------
+   DELETE
+   FROM TABLE_NAME
+   [WHERE CONDITION];
+
+
+DELETE
+FROM PRODUCT
+WHERE PID=4;
+
+
+TRUNCATE:
+--------
+[DELETE ALL THE RECORDS WITHOUT ALTERNING THE STRUCTURE]
+
+SYNTAX:
+    TRUNCATE TABLE TABLE_NAME;
+   
+    TRUNCATE TABLE PRODUCT;
+
+
+
+DROP:[DELETE ALL THE RECORDS ALONG WITH THE TABLE STRUCTURE].
+-----
+  DROP TABLE TABLE_NAME;
+
+  DROP TABLE PRODUCT;
+
+  DROP DATABASE DEMO;
+DQL
+---
+SELECT: TO SELECT THE RECORDS FROM THE TABLE.
+
+PROJECTION:
+           IT IS A PROCESS TO SELECT RECORDS FROM THE TABLE BY USING COL_NAME/EXPRESSION.
+
+SELECTION:
+          IT IS A PROCESS TO SELECT RECORDS FROM THE TABLE BY USING COL_NAME/EXPRESSION BY PRIOVIDING
+          CONDITION.
+
+JOINS:
+     TO RETRIVE THE DATA FROM MULTIPLE TABLE SIMULTANEOUSLY.
+
+
+
+Order of Execution 
+--------------------
+> FROM
+> SELECT 
+
+FROM Clause 
+-------------
+> FROM Clause always execute first in query. It takes Table_name as argument. 
+> It goes to database, search for the table and put the table under execution. 
+
+SELECT Clause 
+--------------
+> SELECT Clause executes after FROM Clause. 
+> It takes */Column_name/expressions as arguments. 
+> SELECT Clause goes to the table which is under execution, gets the data and 
+   display the output. 
+
+
+1, WQTD FNAME OF THE EMP;
+--------------------------
+ SELECT FNAME
+ FROM EMP;
+
+2, WQTD FNAME,LNAME,SAL DOB;
+---------------------------
+ SELECT FNAME,LNAME,SAL,DOB
+FROM EMP;
+
+3. WQTD FNAME , ANNUAL SAL;
+---------------------------
+   SELECT FNAME,SAL * 12
+   FROM EMP;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

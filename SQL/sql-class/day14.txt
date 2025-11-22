@@ -1,0 +1,133 @@
+
+14.WQTD DETAILS OF EMP WHO ARE REPORTING TO MURALI MANAGER?
+-----------------------------------------------------------
+
+
+
+SELECT *
+FROM EMP
+WHERE MGR IN(SELECT EID
+		FROM EMP
+		WHERE EID IN(SELECT MGR
+				FROM EMP
+				WHERE FNAME='MURALI'));
+
+
+
+
+
+
+15.WQTD DETAILS OF DEPT OF THE EMP WHO ARE REPORTING TO RAHUL'S MANAGER'S MANAGER?
+----------------------------------------------------------------------------------
+SELECT *
+FROM DEPT
+WHERE DNO IN(SELECT DNO
+		FROM EMP
+		WHERE MGR IN(SELECT EID
+				FROM EMP
+				WHERE EID IN(SELECT MGR
+						FROM EMP
+						WHERE EID IN(SELECT MGR
+								FROM EMP
+								WHERE FNAME='RAHUL'))));
+
+
+
+DRAWBACK: WE CAN GET ONLY ONE TABLE INFORMATION WE CAN'T DISPLAY MULTIPLE TABLES INFORMATION.
+
+
+JOINS:
+------
+ * TO JOIN MULTIPLE TABLES WE USE JOINS AND TO GET MULTIPLE TABLE DATA AT A TIME.
+
+
+TYPES JOINS:
+------------
+
+1. CROSS JOIN / CARTESION JOIN
+2. INNER JOIN
+3. OUTER JOIN 
+    1. LEFT OUTER JOIN / LEFT JOIN
+    2. RIGHT OUTER JOIN / RIGHT JOIN
+4. SELF JOIN
+5. NATURAL JOIN.
+
+
+1. CROSS JOIN:
+--------------
+
+TO MERGE TWO TABLE DATA WE NEED CROSS JOIN.
+
+SYNTAX:
+        SELECT COL_NAME/EXPRESSION
+	FROM TABLE_NAME_1 T1 CROSS JOIN TABLE_NAME_2 T2;
+
+
+
+1. WQTD CARTESION PRODUCT / RECORDS FROM EMP AND DEPT?
+------------------------------------------------------
+
+SELECT *
+FROM EMP E CROSS JOIN DEPT D;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

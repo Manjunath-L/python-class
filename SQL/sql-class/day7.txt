@@ -1,0 +1,407 @@
+40. WQTD MAXIMUM SAL AND MINIMUN SAL GIVEN TO EACH DEPT IF THE EMP
+  ARE GETTING SAL MORE THAN 32000 AND DEPT CONTAIN ATLEAST 3 EMP IN IT?
+------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+41.WQTD MAXIMUN TO MINIMUM SALARY FROM EMP TABLE:
+------------------------------------------------
+
+SELECT SAL,DNO
+FROM EMP
+ORDER BY SAL DESC,DNO ASC;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ORDER BY :
+--------
+ TO ARRANGE THE ORDER BASED ON THE REQUIREMENT(ASS/DESC) WE USE ORDER BY CLAUSE.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+42. WQTD FNAME ,LNAME AND JOB IF THE EMP WORKING AS SALESMAN OR MANAGER AND
+ ARRENGE THE RECORDS IN ACCORDING TO ALPHABHETICAL ORDER OF THEIR FNAME.
+-----------------------------------------------------------------------------------
+SELECT FNAME AS 'FIRST_NAME',LNAME,JOB
+FROM EMP
+WHERE JOB IN('SALESMAN','MANAGER')
+ORDER  BY FIRST_NAME ASC;
+
+
+
+
+ORDER OF EXECUTION:
+-------------------
+1. FROM
+2. WHERE
+3. GROUP BY
+4. HAVING
+5. SELECT
+6. ORDER BY
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+43. WQTD DETAILS OF FIRST 3 EMP?
+---------------------------------
+LIMIT : TO FECTH RESPECTED NUMBER OF VALUES FROM THE TABLE WE USE LIMIT KEYWORD.
+
+
+SELECT *
+FROM EMP
+LIMIT 3;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+44. WQTD FIRST RECORD DETAILS FROM EMP TABLE?
+-----------------------------------------------
+SELECT *
+FROM EMP
+LIMIT 1;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+45. WQTD 2ND RECORD DETAILS FROM EMP TABLE?
+-------------------------------------------
+SELECT *
+FROM EMP
+LIMIT 1 OFFSET 1;
+
+
+CLAUSES IN QUERY:
+-----------------
+1. SELECT
+2. FROM
+3. WHERE
+4. GROUP BY
+5. HAVING
+6. ORDER BY
+7. LIMIT AND OFFSET
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+46. WQTD DETAILS OF 3RD AND 4TH EMP?
+-------------------------------------
+SELECT *
+FROM EMP
+LIMIT 2 OFFSET 2;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+47. WQTD DETAILS OF TOP 5 MAXIMUM SAL EMP?
+--------------------------------------------
+SELECT *
+FROM EMP
+ORDER BY SAL DESC
+LIMIT 5;
+
+
+
+
+
+
+
+
+
+
+
+
+
+48> WQTD 3RD MAXIMUM SAL FROM THE EMP TABLE?
+---------------------------------------------
+SELECT DISTINCT SAL
+FROM EMP
+ORDER BY SAL DESC
+LIMIT 1 OFFSET 2;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+49. WQTD 4TH MINIMUM SAL FROM EMP?
+-----------------------------------
+
+SELECT DISTINCT SAL
+FROM EMP
+ORDER BY SAL ASC
+LIMIT 1 OFFSET 3;
+
+
+
+
+CHARACTER FUNCTION:
+--------------------
+
+CHARARISTIC OF CHARACTER FUNCTION:
+----------------------------------
+* IT WILL TAKES N NUMBER OF INPUTS AND GENERATES N NUMBER OF OUTPUT.
+* CAN NEST CHARACTER FUNCTION.
+* WE CAN USE THESE FUNCTION INSIDE WHERE CLAUSE.
+* EXECUTES ROW BY ROW.
+
+TYPES OF CHARACTER FUNCTION:
+----------------------------
+1. LOWER(): TO CONVERT INPUT INTO LOWER CASE.
+
+   SELECT LOWER('PENTAGON');//pentagon
+
+2. UPPER(): TO CONVERT INPUT INTO UPPER CASE.
+
+  SELECT UPPER('pentagon');//| PENTAGON
+
+3. LENGTH(): TO COUNT NUMBER OF CHARACTER WE USE LENGTH().
+
+  SELECT LENGTH('PENTAGON');
+	SELECT LENGTH('PENTAGON SPACE');//14
+
+4. REVERSE(): TO REVERSE GIVEN INPUT WE USE REVERSE().
+
+     SELECT REVERSE('PENTAGON');
+
+
+5. CONCAT(): TO COMBIAN THE MULTIPLE STRINGS WE USE THIS FUNCTION.
+
+
+  SYNATAX:
+       CONACT('STR1','STR2',.........);
+
+EX: SELECT CONCAT('PENTAGON','SPACE');
+
+
+SAMPLE OUTPUT : 'MR/MISS SUNDRA YOUR SALARY IS 1000 RS';
+
+SELECT CONCAT('MR/MISS ',FNAME,' YOUR SALARY IS ',SAL,' RS')
+FROM EMP;
+
+
+
+
+FNAME: SHARUKH
+LNAME: KHAN 
+
+FULL NAME : SHARUKH KHAN
+
+
+SELECT CONCAT(FNAME,' ' , LNAME) AS 'FULL NAME'
+FROM EMP;
+
+SUBSTR():
+       TO OBATAIN SUB STRING FROM THE ORIGINAL STRING
+
+
+CASE 1:
+       P E N T A G O N
+       1 2 3 4 5 6 7 8
+
+SYNATAX:  SUBSTR(ORIGINAL_sTRING,POSITION,[LENGTH]);
+      SELECT SUBSTR('PENTAGON',4);
+      SELECT SUBSTR('PENTAGON',4,3);
+
+
+
+CASE 2:
+       P E N T A G O N  
+      -5  -4  -3  -2 -1
+
+SELECT SUBSTR('PENTAGON',-3,2);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+50. WQTD FNAME,LNAME AS FULL NAME FROM THE EMP:
+-----------------------------------------------
+
+

@@ -1,0 +1,455 @@
+4. WQTD FNAMe,LNAME,AND ANNUAL SAL:
+----------------------------------
+
+SELECT FNAME,LNAME,SAL *12
+FROM EMP;
+
++---------+----------+------------+
+| FNAME   | LNAME    | SAL *12    |
++---------+----------+------------+
+| RAHUL   | MUKARJEE | 1200000.00 |
+| SAMEER  | KHAN     | 1080000.00 |
+| JAHNAVI | NAIK     | 5400000.00 |
+| SHIVANI | RAI      | 5400000.00 |
+| ABHIJIT | GOWDA    |  600000.00 |
+| KARAN   | BHAT     |  540000.00 |
+| MURALI  | KRISHNAN |  540000.00 |
+| DHARANI | PATIL    |  360000.00 |
+| RASHMI  | GOWDA    |  540000.00 |
+| FARIYA  | TAJ      |  384000.00 |
+| PRIYA   | SHETTY   |  384000.00 |
+| AMAN    | RAI      |  480000.00 |
+| KIRAN   | RAJ      |  360000.00 |
++---------+----------+------------+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5.WQTD FNAME,LNAME AND SAL WITH 10% HIKE:
+-----------------------------------------
+HIKE:
+----
+
+COL +(COL * %HIKE/100)
+
+SELECT FNAME,LNAME, SAL+(SAL*10/100)
+FROM EMP;
+
++---------+----------+------------------+
+| FNAME   | LNAME    | SAL+(SAL*10/100) |
++---------+----------+------------------+
+| RAHUL   | MUKARJEE |    110000.000000 |
+| SAMEER  | KHAN     |     99000.000000 |
+| JAHNAVI | NAIK     |    495000.000000 |
+| SHIVANI | RAI      |    495000.000000 |
+| ABHIJIT | GOWDA    |     55000.000000 |
+| KARAN   | BHAT     |     49500.000000 |
+| MURALI  | KRISHNAN |     49500.000000 |
+| DHARANI | PATIL    |     33000.000000 |
+| RASHMI  | GOWDA    |     49500.000000 |
+| FARIYA  | TAJ      |     35200.000000 |
+| PRIYA   | SHETTY   |     35200.000000 |
+| AMAN    | RAI      |     44000.000000 |
+| KIRAN   | RAJ      |     33000.000000 |
++---------+----------+------------------+
+13 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6.WQTD FNAME,LNAME,JOB AND SAL WITH 15% DEDUCTION:
+------------------------------------------------
+
+DEDUCTION:
+----------
+COL - (COL* % DED/100)
+
+SELECT FNAME,LNAME,JOB, SAL - (SAL*15/100)
+FROM EMP;
+
++---------+----------+------------+--------------------+
+| FNAME   | LNAME    | JOB        | SAL - (SAL*15/100) |
++---------+----------+------------+--------------------+
+| RAHUL   | MUKARJEE | MANAGER    |       85000.000000 |
+| SAMEER  | KHAN     | MANAGER    |       76500.000000 |
+| JAHNAVI | NAIK     | DISPATCHER |      382500.000000 |
+| SHIVANI | RAI      | TESTER     |      382500.000000 |
+| ABHIJIT | GOWDA    | DISPATCHER |       42500.000000 |
+| KARAN   | BHAT     | SALESMAN   |       38250.000000 |
+| MURALI  | KRISHNAN | DISPATCHER |       38250.000000 |
+| DHARANI | PATIL    | DEVELOPER  |       25500.000000 |
+| RASHMI  | GOWDA    | SALESMAN   |       38250.000000 |
+| FARIYA  | TAJ      | DEVELOPER  |       27200.000000 |
+| PRIYA   | SHETTY   | ACCOUNTANT |       27200.000000 |
+| AMAN    | RAI      | SALESMAN   |       34000.000000 |
+| KIRAN   | RAJ      | ACCOUNTANT |       25500.000000 |
++---------+----------+------------+--------------------+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7. WQTD DETAILS OF EMP ALONG WITH ANNUAL SAL WITH 10% HIKE:
+----------------------------------------------------------
+
+SELECT *, (SAL*12)+((SAL *12) * 10/100)
+FROM EMP;
+
++------+---------+----------+------------+--------+------------+------+------------+-----------+---------+------+------+-------------------------------+
+| EID  | FNAME   | LNAME    | DOB        | GENDER | JOB        | MGR  | DOJ        | SAL       | COMM    | DNO  | CID  | (SAL*12)+((SAL *12) * 10/100) |
++------+---------+----------+------------+--------+------------+------+------------+-----------+---------+------+------+-------------------------------+
+| 1701 | RAHUL   | MUKARJEE | 1991-02-19 | M      | MANAGER    | 1702 | 2017-04-17 | 100000.00 |    NULL |  111 | NULL |                1320000.000000 |
+| 1702 | SAMEER  | KHAN     | 1995-04-20 | M      | MANAGER    | 2001 | 2017-07-07 |  90000.00 |    NULL |  110 | NULL |                1188000.000000 |
+| 1801 | JAHNAVI | NAIK     | 1996-04-11 | F      | DISPATCHER | 1702 | 2020-02-15 | 450000.00 | 1000.00 |  110 | NULL |                5940000.000000 |
+| 1901 | SHIVANI | RAI      | 1998-11-07 | F      | TESTER     | 2201 | 2019-12-12 | 450000.00 |    NULL |  113 |  502 |                5940000.000000 |
+| 1902 | ABHIJIT | GOWDA    | 1997-12-25 | M      | DISPATCHER | 1702 | 2019-02-28 |  50000.00 |    NULL |  110 |  505 |                 660000.000000 |
+| 1903 | KARAN   | BHAT     | 1997-12-26 | M      | SALESMAN   | 1701 | 2019-12-26 |  45000.00 |    NULL |  111 |  506 |                 594000.000000 |
+| 2001 | MURALI  | KRISHNAN | 1998-06-08 | M      | DISPATCHER | 2201 | 2020-03-15 |  45000.00 | 1000.00 |  110 | NULL |                 594000.000000 |
+| 2002 | DHARANI | PATIL    | 1998-11-10 | F      | DEVELOPER  | 2001 | 2021-06-20 |  30000.00 | 3000.00 |  113 | NULL |                 396000.000000 |
+| 2101 | RASHMI  | GOWDA    | 1995-10-03 | F      | SALESMAN   | 1701 | 2021-01-02 |  45000.00 | 3000.00 |  111 | NULL |                 594000.000000 |
+| 2102 | FARIYA  | TAJ      | 1999-01-03 | F      | DEVELOPER  | 2001 | 2021-03-01 |  32000.00 | 3600.00 |  113 | NULL |                 422400.000000 |
+| 2103 | PRIYA   | SHETTY   | 1998-03-20 | F      | ACCOUNTANT | 2001 | 2021-05-01 |  32000.00 | 3600.00 |  112 | NULL |                 422400.000000 |
+| 2104 | AMAN    | RAI      | 1998-08-15 | M      | SALESMAN   | 1701 | 2021-12-26 |  40000.00 |    NULL |  111 | NULL |                 528000.000000 |
+| 2201 | KIRAN   | RAJ      | 1999-09-21 | M      | ACCOUNTANT | NULL | 2022-08-28 |  30000.00 | 3600.00 |  115 |  503 |                 396000.000000 |
++------+---------+----------+------------+--------+------------+------+------------+-----------+---------+------+------+-------------------------------+
+13 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+8.WQTD DETAILS OF EMP AND SAL WITH 12% DEDUCTION AND COMM WITH 5% HIKE:
+-----------------------------------------------------------------------
+
+SELECT *, SAL-(SAL*12/100),COMM+(COMM*5/100)
+FROM EMP;
+
+ALIASING:
+--------
+   PROVIDING ALTERNATIVE NAMES FOR THE COLM IN THE RESULTENT TABLE,
+
+
+RULES:
+-----
+ > WITH OR WITHOUT USING AS KEYWORD WE CAN GIVE ALIASI NAME.
+ > WE CAN HAVE MULTIPLE WORDS IN ALIASI NAME BY PROVIDING WITH IN SINGLE QUOTES.
+
+SELECT SAL * 12 AS  'ANNUAL SALARY'
+FROM EMP;
+
+SELECT *, SAL-(SAL*12/100) ' SAL WITH 12% DEDUCTION',COMM+(COMM*5/100) 'COMM WITH 5% HIKE'
+FROM EMP;
+
+SAL-(SAL*12/100) --->  SAL WITH 12% DEDUCTION
+
+COMM+(COMM*5/100)----> COMM WITH 5% HIKE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9. WQTD FNAME AS 'FIRST NAME' ,LNAME AS 'LAST NAME' AND ANNUAL SALARY FROM EMP?
+--------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+10. WQTD DIFFERENT JOB IN THE EMP TABLE:
+----------------------------------------
+
+SELECT JOB
+FROM EMP;
+
+DISTINCT:
+---------
+ TO AOID DUPLICATE VALUES WE USE DISTINCT KEYWORD.
+
+RULES:
+------
+> IN SELECT CLAUSE * OR DISTINCT KEYWORD MUST BE FIRST ARGUMENT
+
+> WE CAN USE MULTIPLE COLMNS IN THIS KEYWORDS, THEN WILL PICK UNIQUE COMBINATION OF RECOTRDS.
+
+SELECT DISTINCT JOB
+FROM EMP;
+
+
+
+
+SAL
+--
+100  10 T
+200  10 T
+100  20 T
+200  20 T
+100  10 F
+
+
+
+where
+-----
+IT IS USED TO FILTER THE RECORDS FROM TABLE
+
+Characteristics of where clause
+--------------------------------
+1. it executes after from clause
+2. it executes row by row
+3. it evaluates true or false conditions
+4. we can write multiple condition inside where clause
+
+
+ORDER OF EXECUTION
+------------------
+1.FROM
+2.WHERE
+3.SELECT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+====================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+11. WQTD DEATILS OF EMP WHO FNAME IS KARAN?
+--------------------------------------------
+
+
+SELECT *
+FROM EMP
+WHERE FNAME='KARAN';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+12. WQTD FNAME,LNAME AND JOB FROM EMP TABLE IF THE EMP WORKING AS SALESMAN.
+-----------------------------------------------------------------------------------------------------
+
+SELECT FNAME,LNAME,JOB
+FROM EMP
+WHERE JOB='SALESMAN';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+13. WQTD DETAILS OF EMP WHO WERE BORN AFTER THE YEAR 1993?
+-----------------------------------------------------------
+SELECT *
+FROM EMP
+WHERE DOB > '1993-12-31';
+
+OR
+
+WHERE DOB >='1994-01-01'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+14. WQTD DETAILS OF EMP WHO WERE HIRED BEFORE 2019:
+---------------------------------------------------
+
+SELECT *
+FROM EMP
+WHERE DOJ < '2019-01-01';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+15. WQTD DETAILS OF EMP WHO ARE GETTING ANNUAL SAL MORE THAN 50000?
+-------------------------------------------------------------------
+SELECT *,(SAL*12)
+FROM EMP
+WHERE (SAL*12)> 50000;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

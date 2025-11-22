@@ -1,0 +1,179 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+13. WQTD DETAILS OF EMP WHO ARE DELIVERED THE PRODUCT TO THE CUSTOMER  WHO BELONGS TO THE MUMBAI CITY?
+-------------------------------------------------------------------------------------------------------
+
+
+
+
+
+SELECT *
+FROM EMP
+WHERE EID IN(SELECT EID
+		FROM ORDERS
+		WHERE ORDER_ID IN(SELECT ORDER_ID
+					FROM CUSTOMER
+					WHERE LID IN(SELECT LID
+							FROM LOCATION
+							WHERE CITY='MUMBAI')));
+	
+
+12.WQTD DETAILS OF THE CUSTOMER WHO ORDERED SOME PRODUCT?
+---------------------------------------------------------
+SELECT * FROM CUSTOMER
+WHERE ORDER_ID IS NOT NULL;
+
+OR
+
+SELECT * FROM CUSTOMER
+WHERE ORDER_ID IN(SELECT ORDER_ID FROM ORDERS );
+
+
+
+
+
+
+14. WQTD DETAILS OF THE EMP WHO ARE GETTING SAL MORE THAN ALL THE SALESMAN?
+---------------------------------------------------------------------------
+
+
+SELECT *
+FROM EMP
+WHERE SAL> ALL(SELECT SAL
+		FROM EMP
+		WHERE JOB='SALESMAN');
+
+
+ERROR 1242 (21000): Subquery returns more than 1 row
+
+
+ALL:
+---
+ THIS IS SPECIAL OPERATOR IT WILL ACCEPT N NUMBER OF VALUES AT RHS AND SINGLE VALUE AT LHS.
+
+
+SYNTAX: COL_NAME/EXPRESSION >,<, ALL(V1,V2,V3.....);
+
+IT WILL WORK BASED ON AND CONDTION.
+
+
+RAMU: 1000 - T
+RAJU: 700 - F
+
+
+
+
+  700 > ALL (200,600,500,800)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+15.WQTD DETAILS OF EMP WHO ARE GETTING SAL MORE THAN ANY SALESMAN SAL?
+----------------------------------------------------------------------
+
+
+
+SELECT *
+FROM EMP
+WHERE SAL> ANY(SELECT SAL
+		FROM EMP
+		WHERE JOB='SALESMAN');
+
+
+
+
+
+
+
+ 
+16. WQTD MANAGER DETAILS OF KARAN?
+----------------------------------
+
+
+SELECT *
+FROM EMP
+WHERE EID IN(SELECT MGR
+		FROM EMP
+		WHERE FNAME='KARAN');
+
+
+
+
+
+
+
+14. WQTD DETAILS OF THE EMP WHO ARE REPORTING TO KIRAN?
+-------------------------------------------------------
+
+SELECT *
+FROM EMP
+WHERE MGR IN(SELECT EID
+		FROM EMP
+		WHERE FNAME='KARAN');
+
+
+
+
+
+
+
+
+
+
+
