@@ -1,43 +1,5 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 13. WQTD DETAILS OF EMP WHO ARE DELIVERED THE PRODUCT TO THE CUSTOMER  WHO BELONGS TO THE MUMBAI CITY?
 -------------------------------------------------------------------------------------------------------
-
-
-
-
 
 SELECT *
 FROM EMP

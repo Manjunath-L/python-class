@@ -15,7 +15,6 @@ class VLC:
     def prog_bar(self):
         print("progress bar is active")
         time.sleep(3)
-
 v = VLC()
 v.apl_open()
 v.video_play()
