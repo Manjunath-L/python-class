@@ -1,7 +1,6 @@
 import time
 from threading import Thread
 
-
 class print_names(Thread):
     def run(self):
         names = ["Rama","krishna","arjuna"]

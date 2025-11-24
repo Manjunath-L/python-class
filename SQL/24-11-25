@@ -1,0 +1,80 @@
+-- 1.
+SELECT *
+FROM emp
+WHERE SAL > (SELECT MIN(SAL)
+            FROM EMP);
+
+-- 2.
+SELECT *
+FROM emp
+WHERE DNO = (
+    SELECT MAX(DNO)
+    FROM EMP
+);
+
+-- 3.
+SELECT *
+FROM emp
+WHERE SAL < (
+    SELECT AVG(SAL)
+    FROM EMP
+);
+
+--  4.
+SELECT *
+FROM dept
+WHERE LID IN (
+    SELECT LID 
+    FROM  LOCATION
+    WHERE CITY = "BANGALORE"
+);
+
+-- 5.
+SELECT *
+FROM EMP 
+WHERE DOJ > (
+    SELECT MIN(DOJ)
+    FROM EMP
+);
+
+-- 6.
+SELECT *
+FROM customer
+WHERE  LID = (SELECT LID
+FROM customer
+WHERE CID = 501);
+
+-- 7.
+SELECT *
+FROM product
+WHERE PRICE > (
+    SELECT AVG(PRICE)
+    FROM product
+);
+
+-- 8.
+SELECT *
+FROM product
+WHERE PRICE = (
+    SELECT MAX(PRICE)
+    FROM product
+);
+
+
+-- 9.
+SELECT *
+FROM emp
+WHERE SAL = (
+    SELECT SAL
+    FROM emp
+    WHERE EID = 2101
+);
+
+-- 10.
+SELECT *
+FROM LOCATION 
+WHERE LID = (
+    SELECT LID
+    FROM dept
+    WHERE ID = 111
+);
