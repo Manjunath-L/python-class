@@ -78,3 +78,55 @@ WHERE LID = (
     FROM dept
     WHERE ID = 111
 );
+
+
+SELECT *SELECT *
+FROM product
+WHERE PRODUCT_ID NOT IN (
+    SELECT PRODUCT_ID FROM orders
+);
+SELECT *
+FROM product
+WHERE PRODUCT_ID IN (
+
+    SELECT PRODUCT_ID
+    FROM orders
+    WHERE ORDER_ID IN (
+
+        SELECT ORDER_ID
+        FROM customer
+        WHERE LID IN (
+
+            SELECT LID
+            FROM location
+            WHERE CITY = 'BANGALORE'
+        )
+    )
+);
+
+
+SELECT *
+FROM customer
+WHERE LID IN (
+
+    -- Step 3: Find all LIDs of that city
+    SELECT LID
+    FROM location
+    WHERE CITY = (
+
+        -- Step 2: Find the city of the customer with the longest name
+        SELECT CITY
+        FROM location
+        WHERE LID = (
+
+            -- Step 1: Find the LID of the customer with the longest name
+            SELECT LID
+            FROM customer
+            WHERE LENGTH(CONCAT(FIRST_NAME, ' ', LAST_NAME)) = (
+                SELECT MAX(LENGTH(CONCAT(FIRST_NAME, ' ', LAST_NAME)))
+                FROM customer
+            )
+            LIMIT 1
+        )
+    )
+);

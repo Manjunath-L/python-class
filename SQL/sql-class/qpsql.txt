@@ -1,0 +1,179 @@
+1. Find employees whose salary is greater than the minimum salary in the company.
+SELECT *
+FROM emp
+WHERE SAL > (SELECT MIN(SAL)
+            FROM EMP);
+
+2. List employees working in the department with the highest department NO.
+SELECT *
+FROM emp
+WHERE DNO = (
+    SELECT MAX(DNO)
+    FROM EMP
+);
+
+3. Find employees whose salary is less than the average salary.
+SELECT *
+FROM emp
+WHERE SAL < (
+    SELECT AVG(SAL)
+    FROM EMP
+);
+
+
+4. Display departments located in the same location as 'Bangalore'.
+
+SELECT *
+FROM dept
+WHERE LID IN (
+    SELECT LID 
+    FROM  LOCATION
+    WHERE CITY = "BANGALORE"
+);
+
+5. Find employees hired after the earliest hire date.
+
+SELECT *
+FROM EMP 
+WHERE DOJ > (
+    SELECT MIN(DOJ)
+    FROM EMP
+);
+
+6. Find customers from the same location as the customer with ID 501. 
+SELECT *
+FROM customer
+WHERE  LID = (SELECT LID
+FROM customer
+WHERE CID = 501);
+
+7. Find products priced above the average price.
+
+SELECT *
+FROM product
+WHERE PRICE > (
+    SELECT AVG(PRICE)
+    FROM product
+);
+
+8. Find orders placed for the most expensive product.
+SELECT *
+FROM product
+WHERE PRICE = (
+    SELECT MAX(PRICE)
+    FROM product
+);
+
+9. Employees earning the same salary as the employee with eid = 2101
+SELECT *
+FROM emp
+WHERE SAL = (
+    SELECT SAL
+    FROM emp
+    WHERE EID = 2101
+);
+
+10. Departments with the same location as the department with ID 111.
+SELECT *
+FROM LOCATION 
+WHERE LID = (
+    SELECT LID
+    FROM dept
+    WHERE ID = 111
+);
+
+11. List products ordered by customers from city 'BANGALORE'.
+SELECT *
+FROM product
+WHERE PRODUCT_ID IN (
+
+    SELECT PRODUCT_ID
+    FROM orders
+    WHERE ORDER_ID IN (
+
+        SELECT ORDER_ID
+        FROM customer
+        WHERE LID IN (
+
+            SELECT LID
+            FROM location
+            WHERE CITY = 'BANGALORE'
+        )
+    )
+);
+
+12. Find employees belonging to the smallest department ID.
+SELECT *
+FROM emp
+WHERE DNO = (SELECT MIN(DNO) FROM dept);
+
+13. Employees with the same job as employee 1701.
+SELECT *
+FROM emp
+WHERE JOB = (
+    SELECT JOB FROM emp WHERE EID = 1701
+);
+
+14. Orders for the cheapest product.
+SELECT *
+FROM orders
+WHERE PRODUCT_ID = (
+    SELECT PRODUCT_ID
+    FROM product
+    ORDER BY PRICE ASC
+    LIMIT 1
+);
+
+15. Find employees whose salary equals the department's highest salary.
+
+16. Products never ordered.
+
+
+17. Employees who work in the same department as the highest paid employee.
+SELECT *
+FROM emp
+WHERE DNO = (
+    SELECT DNO
+    FROM emp
+    ORDER BY SAL DESC
+    LIMIT 1
+);
+
+18. Departments located in the same city as location ID 4.
+
+
+19. Customers with the same location as customer ID 508.
+SELECT *
+FROM customer
+WHERE LID = (
+    SELECT LID FROM customer WHERE CID = 508
+);
+
+20. Employees whose commission equals the minimum commission.
+SELECT *
+FROM emp
+WHERE COMM = (SELECT MIN(COMM) FROM emp);
+
+
+23. Customers in the same city as the customer with the longest name.
+
+
+
+
+
+24.  Employees who joined in the same year as the earliest joining employee.
+SELECT *
+FROM emp
+WHERE YEAR(DOJ) = (
+    SELECT YEAR(MIN(DOJ))
+    FROM emp
+);
+
+
+
+25. WQTD 3RD HIGHEST SAL HOLDER EMPLOYEE.
+SELECT *
+FROM emp
+ORDER BY SAL DESC
+LIMIT 1 OFFSET 2;
+
