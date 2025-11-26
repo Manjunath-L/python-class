@@ -1,0 +1,1 @@
+email_id = r"^[a-zA-Z0-9.]"
