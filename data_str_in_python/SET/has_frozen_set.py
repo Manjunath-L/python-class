@@ -17,7 +17,7 @@ d = {True,False,False,True}
 print(d)
 print(hash(True))
 
-se1 = frozenset([10,20,30,40])
-print(se1)
-se1.add(10)
-se1.remove(10)
+# se1 = frozenset([10,20,30,40])
+# print(se1)
+# se1.add(10)
+# se1.remove(10)
