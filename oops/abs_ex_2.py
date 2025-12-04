@@ -1,12 +1,13 @@
-class Plane:
-    def takeoff(self):
-        print("Plane is take off")
+from abc import ABC, abstractmethod
 
-    def fly(self):
-        print("Plane is flying")
 
-    def land(self):
-        print("Plane is landing")
+class Plane(ABC):
+    @abstractmethod
+    def takeoff(self):...
+    @abstractmethod
+    def fly(self):...
+    @abstractmethod
+    def land(self):...
 
 class Cargo(Plane):
     def takeoff(self):
@@ -38,15 +39,11 @@ class Fighter(Plane):
     def land(self):
         print("Fighter is landing")
 
-c =Cargo()
-p = Passenger()
-f = Fighter()
-
-def allowPlane(ref):
+def allowPlane(ref:Plane):
     ref.takeoff()
     ref.fly()
     ref.land()
 
-allowPlane(c)
-allowPlane(p)
-allowPlane(f)
+allowPlane(Cargo())
+allowPlane(Passenger())
+allowPlane(Fighter())
