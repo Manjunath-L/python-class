@@ -40,3 +40,21 @@ begin
 	set stock = stock - new.qty
     where product_id = new.product_id;
 end//
+
+create table custmer(
+id int,
+name varchar(20),
+sal int
+)//
+
+
+create trigger sal_update
+after update
+on custmer
+for each row
+begin
+	if new.sal < 0 then
+    signal sqlstate'45000' set message_text = 'enter proper sal ammount bsdk';
+    end if;
+end//
+end//
