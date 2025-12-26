@@ -59,3 +59,6 @@ if card_inset == "yes":
         print("PIN Incorrect")
 else:
     print("Wrong input try again")
+
+print("hello")
+print("hello")
