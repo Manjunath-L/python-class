@@ -1,0 +1,94 @@
+CASE 2: WHEN THE CONDITION GIVEN FOR ONE TABLE AND THE DATA 
+------  PRESENT IN OTHER TABLE THEN WE CAN GO WITH SUB-QUERY.
+
+5. WQTD DETAILS OF EMP WHO GETTING COMM MORE THAN JAHNAVI AND YOUNGER THAN SAMEER?
+----------------------------------------------------------------------------------
+SELECT *
+FROM EMP
+WHERE COMM > (SELECT COMM 
+                   FROM EMP 
+                   WHERE FNAME = 'JAHNAVI') AND DOB>(SELECT DOB
+                                                         FROM EMP
+                                                          WHERE FNAME ='SAMEER');
+
+
+6. WQTD DNAME OF THE KARAN?
+--------------------------
+
+SELECT DNAME 
+FROM DEPT 
+WHERE DNO=( SELECT DNO 
+            FROM EMP 
+            WHERE FNAME ='KARAN');
+
+
+7. WQTD DETAILS OF EMP WHO ARE WORKING IN ACCOUNTING DEPT?
+----------------------------------------------------------
+
+SELECT *
+FROM EMP
+WHERE DNO = (SELECT DNO 
+             FROM DEPT 
+             WHERE DNAME = 'ACCOUNTING');
+
+8. WQTD LOCATION OF THE CUSTOMER SALMAN?
+----------------------------------------
+
+SELECT LOCATION
+FROM LOCATION
+WHERE LID = (SELECT LID 
+             FROM CUSTOMER 
+             WHERE FIRST_NAME ='SALMAN');
+
+9. WQTD DETAILS OF EMP WHO ARE WORKING AS SALESMAN OR MANAGER IN DELIVERY DEPARTMENT?
+--------------------------------------------------------------------------------------
+
+SELECT *
+FROM EMP 
+WHERE JOB IN('SALESMAN','MANAGER')AND DNO =(SELECT DNO FROM DEPT WHERE DNAME = 'DELIVERY');
+
+10. WQTD DETAILS OF EMP WHO ARE WORKING IN ACCOUNTING OR MARKETING DEPARTMENT?
+------------------------------------------------------------------------------
+
+SELECT *
+FROM EMP 
+WHERE DNO IN(SELECT DNO 
+             FROM DEPT 
+             WHERE DNAME IN('ACCOUNTING','MARKETING'));
+
+TYPES OF SUB-QUERIES:
+---------------------
+
+1. SINGLE ROW SUB-QUERY: 
+------------------------
+IF THE INNER QUERY RETURN SINGLE ROW AS OUTPUT WE TREATED AS SINGLE ROW SUB-QUERY.
+
+> WE CAN USE NORMAL OPERATORS (=, !=, >, <).
+
+2. MULTI ROW SUB-QUERY:
+-----------------------
+IF THE INNER QUERY RETURN MULTIPLE ROWS AS OUTPUT WE TREATED AS MULTI ROW SUB-QUERY.    
+
+> WE CAN USE ONLY SPECIAL OPERATOR(IN, LIKE, ANY, ALL).
+
+11. WQTD WORKING LOCATION OF THE EMP PRIYA?
+--------------------------------------------
+SELECT LOCATION
+FROM LOCATION
+WHERE LID IN(SELECT LID 
+             FROM DEPT 
+             WHERE DNO IN(SELECT DNO 
+                          FROM EMP 
+                          WHERE FNAME ='PRIYA'));
+
+12. WQTD DETAILS OF EMP WHO ARE DELIVERED THE PRODUCT TO THE CUSTOMER WHO BELONGS TO THE MUMBAI CITY?
+-----------------------------------------------------------------------------------------------------
+SELECT *
+FROM EMP
+WHERE EID IN (SELECT EID
+              FROM ORDERS
+              WHERE ORDER_ID IN (SELECT ORDER_ID
+                                 FROM CUSTOMER
+                                 WHERE LID IN (SELECT LID
+                                               FROM LOCATION
+                                               WHERE CITY = 'MUMBAI')));

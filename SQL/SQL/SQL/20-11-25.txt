@@ -1,0 +1,79 @@
+13. WQTD DETAILS OF CUSTOMER WHO ORDERED SOME PRODUCT?
+------------------------------------------------------
+
+SELECT *
+FROM CUSTOMER
+WHERE PRODUCT_ID IN (SELECT PRODUCT_ID
+                     FROM PRODUCT);
+
+---------OR-----------
+
+SELECT *
+FROM CUSTOMER
+WHERE ORDER_ID IN (SELECT ORDER_ID
+                     FROM ORDERS);
+
+---------OR----------
+
+SELECT * 
+FROM CUSTOMER
+WHERE ORDER_ID IS NOT NULL;
+
+----------0R----------
+                     
+SELECT * 
+FROM CUSTOMER
+WHERE PRODUCT_ID IS NOT NULL;
+
+14. WQTD DETAILS OF EMP WHO ARE GETTING SAL MORE THAN ALL SALESMAN?
+-------------------------------------------------------------------
+
+SELECT *
+FROM EMP
+WHERE SAL > ALL(SELECT SAL 
+             FROM EMP 
+             WHERE JOB ='SALESMAN');
+
+ALL:
+---- 
+    THIS IS SPECIAL OPERATOR IT WILL ACCEPT N NUMBER OF VALUES AT RHS AND SINGLE VALUE AT LHS.
+
+SYNTAX:  COL_NAME/EXPRESIION >,<, ALL(V1,V2,V3,......);
+
+IT WILL WORK BASED ON AND CONDITION.
+
+15. WQTD DETAILS OF EMP WHO ARE GETTING SAL MORE THAN ANY SALESMAN?
+-------------------------------------------------------------------
+
+SELECT *
+FROM EMP
+WHERE SAL > ANY(SELECT SAL 
+             FROM EMP 
+             WHERE JOB ='SALESMAN');
+
+ANY:
+----
+SYNTAX:  COL_NAME/EXPRESIION >,<, ANY(V1,V2,V3,......);
+
+IT WILL WORK BASED ON OR CONDITION.
+
+16. WQTD MANAGER DETAILS OF KARAN:
+----------------------------------
+
+SELECT *
+FROM EMP
+WHERE EID IN (SELECT MGR 
+              FROM EMP 
+              WHERE FNAME = 'KARAN');
+
+17. WQTD DETAILS OF THE EMP WHO ARE REPORTING TO KIRAN?
+-------------------------------------------------------
+
+SELECT * 
+FROM EMP
+WHERE MGR IN(SELECT EID 
+             FROM EMP  
+             WHERE FNAME = 'KIRAN');
+
+18. WQTD DETAILS OF THE EMP WHO ARE REPORTING TO MURULI MANAGER?
+----------------------------------------------------------------

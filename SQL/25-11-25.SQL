@@ -154,7 +154,7 @@ name varchar(20));
 
 insert into emp values (1,"yeash"),(2,"dboos");
 
-select fname,sal,dno ,row_number() over(partition by dno order by sal desc) AS 'Rank'
+select fname,sal,dno ,row_number() over(partition by dno order by sal desc) AS 'Rank'home_departmenthome_studenthome_department
 from emp;
 select fname,sal,dno ,row_number() over(order by sal desc) AS 'Rank'
 from emp;
@@ -172,3 +172,6 @@ where e1.sal > (select avg(e2.SAL) from emp e2 where e1.dno = e2.dno);
 SELECT E.FNAME
 FROM EMP E 
 WHERE E.DOB < (SELECT M.DOB FROM EMP M WHERE M.EID = E.MGR); 
+
+select d.dname
+

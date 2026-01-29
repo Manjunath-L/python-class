@@ -1,0 +1,133 @@
+TYPE OF OPERATORS:
+------------------
+1. ARITHMATIC(+,-,*,/,%)
+2. REALATIONAL(=,>,<,>=,<=,!=)
+3. LOGICAL(AND,OR,NOT)
+4. SPECIAL (IN, NOT IN, BETWEEN ,NOT BETWEEN, IS, LIKE,NOT LIKE)
+5. SUBQUERY OPERATOR(ANY, ALL)
+
+18. WQTD DEATILS OF EMP WHO ARE WORKING AS SALESMAN OR MANAGER?
+---------------------------------------------------------------
+SELECT *
+FROM EMP
+WHERE JOB='SALESMAN' OR JOB='MANAGER';
+
+19. WQTD DETAILS OF EMP WHO WERE BORN IN THE YEAR 1995?
+-------------------------------------------------------
+SELECT *
+FROM EMP
+WHERE DOB >='1995-01-01' AND DOB<='1995-12-31';
+             
+  AND: IT WILL RETURN TRUE IF ALL THE INPUTS ARE TRUE.
+ 
+  OR:  IT WILL RETURN TRUE IF ANY ONE INPUT RETURN TRUE.
+
+
+20. WQTD DETAILS OF EMP WHO ARE WOKING AS SALESMAN,MANAGER,DEVELOPER, OR DISPATCHER 
+  AND GETTING SAL MORE THAN 45000?
+------------------------------------------------------------------------------------------------
+
+SELECT *
+FROM EMP
+WHERE (JOB='SALESMAN' OR JOB='MANAGER' OR JOB='DEELOPER' OR JOB='DISPATCHER') AND 
+       SAL>45000;
+
+
+SELECT *
+FROM EMP
+WHERE JOB IN('SALESMAN','MANAGER','DEVELOPER','DISPATCHER') AND SAL>45000;
+       
+
+IN: * IT WILL TAKE SINGLE VALUE AT LHS AND MULTIPLE VALUES AT RHS.
+    * IT WILL WORKS ON 'OR' CONDITION
+
+
+21. WQTD FNAME,LNAME,JOB AND SAL, IF THE EMP NOT WORKING AS SALESMAN,MANAGER
+   ,DEVELOPER (WITHOUT OUT USING THE SPECIAL OPERATOR)
+--------------------------------------------------------------------------------------------------------------
+
+SELECT FNAME,LNAME,JOB,SAL
+FROM EMP
+WHERE JOB!='SALESMAN' AND JOB!='DEVELOPER' AND JOB!='MANAGER';
+
+OR
+SELECT FNAME,LNAME,JOB,SAL
+FROM EMP
+WHERE JOB NOT IN('SALESMAN','DEVELOPER','MANAGER');
+
+
+NOT IN : IT WILL WORK BASED ON AND CONDITION
+        IT WILL TAKE SINGLE VALUE IN THE LHS AND MULTIPLE VALUES AT RHS.
+
+
+22. WQTD DETAILS OF EMP WHO WERE BORN IN THE YEAR 1998 AND NOT WORKING AS MANAGER ,
+ SALESMAN AND HIRED DURING IN THE YEAR 2020 BUT NOT FEMALE?
+--------------------------------------------------------------------------------------------------------------
+SELECT *
+FROM EMP
+WHERE DOB>='1998-01-01' AND DOB<='1998-12-31' AND
+      JOB NOT IN('SALESMAN','MANAGER') AND
+      DOJ>='2020-01-01' AND DOJ<='2020-12-31' AND
+      GENDER!='F';
+
+23.WQTD DETAILS OF EMP  IF THE EMP ARE GETTING SALARY MORE THAN  OR EQUAL TO 35000 AND
+   LESS THAN  OR EQUAL TO 50000?
+----------------------------------------------------------------------------------------------------------------
+                            >=-----RANGE VALUE-------<=
+BETWEEN : IT WILL CONCIDER LOWER RANG VALUE AND HIGHER RANGE VALUE.
+SELECT * 
+FROM EMP
+WHERE SAL BETWEEN 35000 AND 50000;
+
+
+24. WQTD DETAILS OF EMP WHO WERE BORN IN THE YEAR 1995?
+--------------------------------------------------------
+
+SELECT *
+FROM EMP
+WHERE DOB BETWEEN '1995-01-01' AND '1995-12-31';
+
+
+25. WQTD DETAILS OF THE EMP WHO ARE GETTING SAL MORE THAN 25000 AND LESS THAN 100000?
+-------------------------------------------------------------------------------------
+
+SELECT *
+FROM EMP
+WHERE SAL BETWEEN 25000+0.01  AND 100000-0.01;
+
+DECIMAL(10,2) ---> 99999999.99
+              -->0.01
+
+DECIMAL(10,3) ---> 0.001
+ DECIMAL(10) ----->0 1
+
+26. WQTD DETAILS OF THE EMP WHO ARE NOT GETTING SAL IN THE RANGE OF 35000 AND 45000?
+------------------------------------------------------------------------------------
+                           <                >
+NOT BETWEEN : IT WILL TAKE LOWER RANGE AND HIGHER RANGE.
+
+SELECT *
+FROM EMP
+WHERE SAL NOT BETWEEN 35000 AND 45000;
+
+27. WQTD DETAILS OF EMP WHO ARE NOT JOIN IN THE YEAR 2020?
+------------------------------------------------------------
+
+
+
+
+
+
+
+28.WQTD DETAILS OF MEP WHO ARE GETTING SOME COMMISSIOM?
+--------------------------------------------------------
+SELECT *
+FROM EMP
+WHERE COMM IS NOT NULL;
+
+
+29. WQTD DETAILS OF THE EMP WHO THEY ARE ACTING AS CUSTOMER TO THEIR COMPANY?
+------------------------------------------------------------------------------
+SELECT *
+FROM EMP
+WHERE CID IS NOT NULL;

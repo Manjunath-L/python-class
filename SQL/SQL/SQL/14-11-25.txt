@@ -1,0 +1,92 @@
+50.WQTD DETAILS OF EMP WHO NAME IS START WITH K?
+------------------------------------------------
+SELECT *
+FROM EMP
+WHERE SUBSTR(FNAME,1,1)='K';
+
+SELECT SUBSTR('PENTAGON',6); 
+
+51.WQTD DETAILS OF EMP WHO'S NAME END WITH R?
+----------------------------------------------
+SELECT *
+FROM  EMP
+WHERE SUBSTR(FNAME,-1,1)='R';
+
+52. WQTD DETAILS OF EMP WHO FNAME START WITH VOWELS?
+---------------------------------------------------
+SELECT *
+FROM EMP
+WHERE SUBSTR(FNAME,1,1) IN('A','E','I','O','U');
+
+53. WQTD DETAILS OF THE EMP WHO FNAME END WITH VOWELS?
+-----------------------------------------------------------
+
+SELECT *
+FROM EMP
+WHERE SUBSTR(FNAME,-1,1) IN('A','E','I','O','U');
+
+54.WQTD DETAILS OF THE EMP WHO WERE BORN IN THE YEAR 1995?
+-----------------------------------------------------------
+SELECT *
+FROM EMP
+WHERE SUBSTR(DOB,1,4)=1995;
+
+YYYY-MM-DD
+12345678910
+
+55.WQTD FNAME,EID,AND PASSWORD ,THE PASSWORD FOLLOWS THE BELOW CONDITION?
+-------------------------------------------------------------------------
+1.FIRST 3 CHARACTERS OF FNAME
+2.LENGTH OF THE FNAME
+3.LAST 3 DIGITS OF EID
+
+SELECT FNAME,EID,CONCAT( SUBSTR(FNAME,1,3),LENGTH(FNAME),SUBSTR(EID,-3)) AS PASSOWRD
+FROM EMP;
+
+56.WQTD FIRST HALF OF THE FNAME?
+---------------------------------
+
+SELECT SUBSTR(FNAME,1,LENGTH(FNAME)/2)
+FROM EMP;
+
+RAJU : RA
+RAGHU: RAG
+
+56. WATD SECOND HALF OF THE FNAME FROM EMP TABLE?
+-------------------------------------------------
+
+SELECT SUBSTR(FNAME,LENGTH(FNAME)/2+1)
+FROM EMP;
+
+REPLACE():
+  TO REPLACE SUBSTRING FROM NEW STRING IN ORIGINAL STRING.
+
+SYNTAX:
+       REPLACE('ORIGINAL_STR',SUB_STR,NEW_STR);
+ 
+     EX: SELECT REPLACE('PENTAGON','PENT','HEX');//| HEXAGON
+         SELECT REPLACE('PENTAGON','N','S');// PESTAGOS
+         SELECT REPLACE('PENTAGON','N','');//PETAGO
+
+57.WQTD REPLACE A AND I WITH [A] AND [I] IN FNAME?
+--------------------------------------------------
+             J[A]HN[A]VI
+SELECT   REPLACE(REPLACE(FNAME,'A','[A]'),'I','[I]')
+FROM EMP;
+
+58. WQTD PRINT NUMBER OF A PRESENT IN MALAYALAM?
+------------------------------------------------
+
+SELECT LENGTH('MALAYALAM')-LENGTH(REPLACE('MALAYALAM','A',''));
+                 MLYLM
+SELECT LENGTH(REPLACE('MALAYALAM','A',''));//5
+
+NUMBER FUNCTION:
+---------------
+
+59. WQTD DETAILS OF EMP THOSE HAVE EVEN EID?
+--------------------------------------------
+SELECT *
+FROM EMP
+WHERE EID % 2 = 0;
+
