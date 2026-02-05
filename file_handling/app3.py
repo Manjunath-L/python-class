@@ -1,0 +1,15 @@
+import csv
+print("Enter the filename")
+fname=input()
+fptr=open(fname,"a",newline="")
+w=csv.writer(fptr)
+w.writerow(["EID","ENAME","EDES","ESAL","EADD"])
+for i in range(5):
+    eid=input("Enter the eid:")
+    ename=input("Enter the ename:")
+    edes=input("Enter the edes:")
+    esal=input("Enter the esal:")
+    eadd=input("Enter the eadd:")
+    w.writerow([eid,ename,edes,esal,eadd])
+fptr.close()
+print("5 emp details are stored in cvs file")

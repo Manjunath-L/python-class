@@ -1,0 +1,11 @@
+# fptr1=open("car1.jpeg","rb")
+# data=fptr1.read()
+# print(data)
+
+fptr1=open("car1.jpeg","rb")
+data1=fptr1.read()
+fptr2=open("car2.jpeg","wb")
+fptr2.write(data1)
+fptr1.close()
+fptr2.close()
+print("New image has created")
